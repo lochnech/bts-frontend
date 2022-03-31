@@ -8,6 +8,9 @@ import { SalesComponent } from './sales/sales.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {AuthGuardService} from "./services/auth-guard.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import {AuthGuardService} from "./services/auth-guard.service";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [AuthGuardService, AppComponent, NavbarComponent],
   bootstrap: [AppComponent]

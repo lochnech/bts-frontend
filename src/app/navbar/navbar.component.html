@@ -1,1 +1,10 @@
-<p>navbar works!</p>
+<nav class="navbar" *ngIf="(status | async)">
+  <div>
+    <ul>
+      <li><a class="nav-link" routerLink="sales">Sales</a></li>
+      <li><a class="nav-link" routerLink="inventory">Inventory</a></li>
+      <li><a class="nav-link" routerLink="/" (click)="signUserOut()">Sign Out</a></li>
+    </ul>
+  </div>
+</nav>
+
