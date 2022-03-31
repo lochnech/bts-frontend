@@ -1,0 +1,23 @@
+h1,h2,h3,h4,h5,h6 {
+  position:absolute;
+  text-align:center;
+  font-style:normal;
+  font-weight:normal;
+  display:flex;
+  background: none;
+  transform:translate(-50%,-50%);
+  width: fit-content
+}
+
+button{
+  background-color:white;
+  font-family:Trade Winds, cursive;
+  position:absolute;
+  border:none;
+  color:green;
+  height:100px;
+  font-size:60px;
+  text-shadow:2px 2px black;
+  transform:translate(-50%,-50%);
+}
+
