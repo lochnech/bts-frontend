@@ -22,10 +22,10 @@ ul {
   /*background-color: #333;*/
 }
 
-/*@font-face{*/
-/*  font-family: "Trade Winds";*/
-/*  src: local("Trade_Winds"), url(./assets/fonts/Trade_Winds/TradeWinds-Regular.ttf) format("truetype");*/
-/*}*/
+@font-face{
+  font-family: "Trade Winds";
+  src: local("Trade_Winds"), url(./assets/fonts/Trade_Winds/TradeWinds-Regular.ttf) format("truetype");
+}
 
 html, body { height: 50px; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
