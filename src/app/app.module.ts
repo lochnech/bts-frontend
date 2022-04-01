@@ -11,6 +11,7 @@ import {AuthGuardService} from "./services/auth-guard.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatMenuModule} from "@angular/material/menu";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule
   ],
   providers: [AuthGuardService, AppComponent, NavbarComponent],
   bootstrap: [AppComponent]

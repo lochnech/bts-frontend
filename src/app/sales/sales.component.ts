@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StoreItem} from "../models/store-item";
 
 @Component({
   selector: 'app-sales',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesComponent implements OnInit {
 
-  constructor() { }
+  itemList: StoreItem[] = [];
+  totalCost: number = 0.00;
+  columnsToDisplay = [];
+
+  constructor() {}
+
+  addItem(item: StoreItem): void {
+    this.itemList.push(item);
+  }
 
   ngOnInit(): void {
   }
