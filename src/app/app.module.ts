@@ -7,12 +7,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SalesComponent } from './sales/sales.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {AuthGuardService} from "./services/auth-guard.service";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import { AuthGuardService } from "./services/auth-guard.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from "@angular/material/icon";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
