@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {StoreItem} from "../models/store-item";
+import { StoreItem } from "../models/store-item";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-sales',
@@ -10,9 +11,12 @@ export class SalesComponent implements OnInit {
 
   cart: StoreItem[] = [];
   totalCost: number = 0.00;
-  columnsToDisplay = [];
 
-  constructor() {}
+  barcodeText: FormControl;
+
+  constructor() {
+    this.barcodeText = new FormControl();
+  }
 
   // adds an item to the cart
   addItem(item: StoreItem): void {
