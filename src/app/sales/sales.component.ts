@@ -8,14 +8,20 @@ import {StoreItem} from "../models/store-item";
 })
 export class SalesComponent implements OnInit {
 
-  itemList: StoreItem[] = [];
+  cart: StoreItem[] = [];
   totalCost: number = 0.00;
   columnsToDisplay = [];
 
   constructor() {}
 
+  // adds an item to the cart
   addItem(item: StoreItem): void {
-    this.itemList.push(item);
+    this.cart.push(item);
+  }
+
+  // deletes an item from the cart
+  deleteItem(index: number): void {
+    this.cart.splice(index, 1);
   }
 
   ngOnInit(): void {
