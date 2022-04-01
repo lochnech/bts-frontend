@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+li a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*background-color: #333;*/
+}
+
+/*@font-face{*/
+/*  font-family: "Trade Winds";*/
+/*  src: local("Trade_Winds"), url(./assets/fonts/Trade_Winds/TradeWinds-Regular.ttf) format("truetype");*/
+/*}*/
+
+html, body { height: 50px; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
