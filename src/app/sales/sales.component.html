@@ -1,5 +1,11 @@
-<mat-form-field class="barcodeReader" appearance="standard">
+<mat-form-field class="barcodeReaderField" appearance="standard">
   <mat-label>Item Barcode</mat-label>
-  <input matInput placeholder="Scan Barcode" formControlName="barcodeText">
+  <input matInput placeholder="Scan Barcode" id="barcodeText" formControlName="barcodeText">
 </mat-form-field>
 
+<button mat-button class="addButton" (click)="addItem(barcodeText.value)">Add Item</button>
+<button mat-button class="deleteButton" (click)="deleteItem(cart.length-1)">Remove Item</button>
+
+<mat-label class="costLabel">Total Cost: ${{totalCost}}</mat-label>
+
+<button mat-button class="confirmButton" (click)="confirmTransaction()">Confirm Transaction</button>

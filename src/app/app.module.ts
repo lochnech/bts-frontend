@@ -29,7 +29,7 @@ import { MatInputModule } from "@angular/material/input";
     MatIconModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [AuthGuardService, AppComponent, NavbarComponent],
   bootstrap: [AppComponent]
