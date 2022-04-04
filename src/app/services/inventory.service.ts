@@ -23,7 +23,7 @@ export class InventoryService {
 
   /** GET item by barcode. Will 404 if item not found */
   getItemByBarcode(barcode: number): Observable<StoreItem> {
-    const url = `${this.inventoryURL}/byBarcode/${barcode}`;
+    const url = `${this.inventoryURL}/barcode/${barcode}`;
     return this.http.get<StoreItem>(url).pipe(
       catchError(this.handleError<StoreItem>(`getItemByBarcode barcode=${barcode}`))
     );
@@ -38,7 +38,7 @@ export class InventoryService {
 
   /** POST a sale of a StoreItem[]. Will remove these items in these quantities from the inventory table */
   makeSale(items: StoreItem[]): Observable<StoreItem[] | null>{
-    const url = `${this.inventoryURL}/makeSale`;
+    const url = `${this.inventoryURL}/sale`;
     return this.http.post<StoreItem[]>(url, items, {observe :'response'}).pipe(map(response => {
       return response.body;
     }))

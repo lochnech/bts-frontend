@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  inventoryURL: 'http://capdev.psdr3.org/stuco'
+  inventoryURL: 'http://capdev.psdr3.org/bts/inventory'
 };
 
 /*
