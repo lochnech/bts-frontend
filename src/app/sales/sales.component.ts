@@ -21,12 +21,12 @@ export class SalesComponent implements OnInit {
   // adds an item to the cart
   addItem(item: StoreItem): void {
     this.cart.push(item);
-    this.totalCost += item.cost;
+    this.totalCost += item.price;
   }
 
   // deletes an item from the cart
   deleteItem(index: number): void {
-    this.totalCost -= this.cart[index].cost;
+    this.totalCost -= this.cart[index].price;
     this.cart.splice(index, 1);
   }
 
@@ -35,6 +35,7 @@ export class SalesComponent implements OnInit {
     this.cart = [];
     this.totalCost = 0.00;
   }
+
 
 
   ngOnInit(): void {
