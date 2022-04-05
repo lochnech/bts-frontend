@@ -62,15 +62,17 @@ export class SalesComponent implements OnInit {
     })
   }
 
-  //refreshes cart and total cost based on items in cart
+  // refreshes cart and total cost based on items in cart
   updateCart(): void {
     this.cartTableData.data = this.cart;
+  }
+
+  // executes when submitting the barcode
+  onSubmit() {
+    console.log('submitted!');
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log('submitted!');
-  }
 }
