@@ -15,9 +15,10 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatTableModule } from "@angular/material/table";
-import {MatDialogModule} from "@angular/material/dialog";
-import {DialogModule} from "./dialogs/dialog.module";
-import {DialogService} from "./dialogs/dialog.service";
+import { MatDialogModule } from "@angular/material/dialog";
+import { DialogModule } from "./dialogs/dialog.module";
+import { DialogService } from "./dialogs/dialog.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import {DialogService} from "./dialogs/dialog.service";
     MatTableModule,
     MatDialogModule,
     DialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthGuardService, AppComponent, NavbarComponent, DialogService],
   bootstrap: [AppComponent]

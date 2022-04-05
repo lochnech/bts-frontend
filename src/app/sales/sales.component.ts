@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreItem } from "../models/store-item";
-import { FormControl } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { MatTableDataSource } from "@angular/material/table";
 import { DialogService } from "../dialogs/dialog.service";
 
@@ -14,15 +14,18 @@ export class SalesComponent implements OnInit {
   cart: StoreItem[];
   totalPrice: number;
 
-  barcodeText: FormControl;
   displayedColumns = ['count', 'itemName', 'price', 'barcode', 'delete'];
   cartTableData: MatTableDataSource<StoreItem>;
+  barcodeForm: FormGroup;
 
-  constructor(public dialogService: DialogService) {
+  constructor(public dialogService: DialogService, public formBuilder: FormBuilder) {
     this.cart = [];
     this.totalPrice = 0;
-    this.barcodeText = new FormControl("");
+
     this.cartTableData = new MatTableDataSource<StoreItem>();
+    this.barcodeForm = this.formBuilder.group({
+      barcodeText: ''
+    });
 
     // // test cart
     // this.cart = [new StoreItem('2', 'among us plushie', 2, 2), new StoreItem('2', 'firefox kinemon plushie', 5, 1)];
@@ -67,4 +70,7 @@ export class SalesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    console.log('submitted!');
+  }
 }
