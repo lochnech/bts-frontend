@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {StoreItem} from "../models/store-item";
-import {catchError, map} from "rxjs/operators";
-import {Observable, of} from "rxjs";
-import {environment} from "../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+import { StoreItem } from "../models/store-item";
+import { catchError, map } from "rxjs/operators";
+import { Observable, of } from "rxjs";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'

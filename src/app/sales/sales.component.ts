@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreItem } from "../models/store-item";
 import { FormControl } from "@angular/forms";
-import {MatTableDataSource} from "@angular/material/table";
-import {DialogService} from "../dialogs/dialog.service";
+import { MatTableDataSource } from "@angular/material/table";
+import { DialogService } from "../dialogs/dialog.service";
 
 @Component({
   selector: 'app-sales',
@@ -44,7 +44,7 @@ export class SalesComponent implements OnInit {
     this.updateCart();
   }
 
-  // finalizes a transaction, removes stock, and clears all fields
+  // finalizes a transaction, removes stock, and clears all fields (now implements dialogs)
   confirmTransaction(): void {
     const options = {title:"Confirm Transaction",
                      message:"Are you sure you wish to confirm this transaction?",
