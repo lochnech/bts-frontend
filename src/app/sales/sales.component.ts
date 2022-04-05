@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreItem } from "../models/store-item";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatTableDataSource } from "@angular/material/table";
 import { DialogService } from "../dialogs/dialog.service";
+import { InventoryService } from "../services/inventory.service";
 
 @Component({
   selector: 'app-sales',
@@ -13,19 +14,16 @@ export class SalesComponent implements OnInit {
 
   cart: StoreItem[];
   totalPrice: number;
-
-  displayedColumns = ['count', 'itemName', 'price', 'barcode', 'delete'];
   cartTableData: MatTableDataSource<StoreItem>;
   barcodeForm: FormGroup;
 
-  constructor(public dialogService: DialogService, public formBuilder: FormBuilder) {
+  displayedColumns = ['count', 'itemName', 'price', 'barcode', 'delete'];
+
+  constructor(public dialogService: DialogService, public formBuilder: FormBuilder, public inventoryService: InventoryService) {
     this.cart = [];
     this.totalPrice = 0;
-
     this.cartTableData = new MatTableDataSource<StoreItem>();
-    this.barcodeForm = this.formBuilder.group({
-      barcodeText: ''
-    });
+    this.barcodeForm = this.formBuilder.group({barcodeText: ''});
 
     // // test cart
     // this.cart = [new StoreItem('2', 'among us plushie', 2, 2), new StoreItem('2', 'firefox kinemon plushie', 5, 1)];
@@ -34,10 +32,13 @@ export class SalesComponent implements OnInit {
   }
 
   // adds an item to the cart
-  addItem(item: StoreItem): void {
-    this.totalPrice += item.price;
-    this.cart.push(item);
-    this.updateCart();
+  addItem(barcode: number): void {
+    this.inventoryService.getItemByBarcode(barcode)
+      .subscribe(item => {
+        this.totalPrice += item.price;
+        this.cart.push(item);
+        this.updateCart();
+      });
   }
 
   // deletes an item from the cart
@@ -59,7 +60,7 @@ export class SalesComponent implements OnInit {
         this.cart = [];
         this.updateCart();
       }//else just let the dialog close and nothing changes
-    })
+    });
   }
 
   // refreshes cart and total cost based on items in cart
@@ -70,6 +71,7 @@ export class SalesComponent implements OnInit {
   // executes when submitting the barcode
   onSubmit() {
     console.log('submitted!');
+    this.addItem(this.barcodeForm.value);
   }
 
   ngOnInit(): void {
