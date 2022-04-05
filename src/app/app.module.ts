@@ -15,6 +15,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatTableModule } from "@angular/material/table";
+import {MatDialogModule} from "@angular/material/dialog";
+import {DialogModule} from "./dialogs/dialog.module";
+import {DialogService} from "./dialogs/dialog.service";
 
 @NgModule({
   declarations: [
@@ -34,8 +37,10 @@ import { MatTableModule } from "@angular/material/table";
     MatInputModule,
     MatCardModule,
     MatTableModule,
+    MatDialogModule,
+    DialogModule,
   ],
-  providers: [AuthGuardService, AppComponent, NavbarComponent],
+  providers: [AuthGuardService, AppComponent, NavbarComponent, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
