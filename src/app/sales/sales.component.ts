@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreItem } from "../models/store-item";
 import { FormControl } from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
+import {DialogService} from "../dialogs/dialog.service";
 
 @Component({
   selector: 'app-sales',
@@ -17,7 +18,7 @@ export class SalesComponent implements OnInit {
   displayedColumns = ['count', 'itemName', 'price', 'barcode', 'delete'];
   cartTableData: MatTableDataSource<StoreItem>;
 
-  constructor() {
+  constructor(public dialogService: DialogService) {
     this.cart = [];
     this.totalPrice = 0;
     this.barcodeText = new FormControl("");
@@ -45,8 +46,17 @@ export class SalesComponent implements OnInit {
 
   // finalizes a transaction, removes stock, and clears all fields
   confirmTransaction(): void {
-    this.cart = [];
-    this.updateCart();
+    const options = {title:"Confirm Transaction",
+                     message:"Are you sure you wish to confirm this transaction?",
+                     confirmText: "Confirm",
+                     cancelText: "Return"}
+    this.dialogService.openConfirmCancel(options).then(ans => {
+      if(ans){
+        //make calls to inventory service here
+        this.cart = [];
+        this.updateCart();
+      }//else just let the dialog close and nothing changes
+    })
   }
 
   //refreshes cart and total cost based on items in cart
