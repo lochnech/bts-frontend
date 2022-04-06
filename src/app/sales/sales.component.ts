@@ -26,7 +26,10 @@ export class SalesComponent implements OnInit {
     this.barcodeForm = this.formBuilder.group({barcodeText: ''});
 
     // // test cart
-    // this.cart = [new StoreItem('2', 'among us plushie', 2, 2), new StoreItem('2', 'firefox kinemon plushie', 5, 1)];
+    // let testItem1 = new StoreItem('000000000001', 'among us plushie', 9.99, 2);
+    // let testItem2 = new StoreItem('000000000002', 'firefox kinemon plushie', 79.12, 19);
+    // let testItem3 = new StoreItem('000000000003', 'gallon of gasoline', 777.77, 45);
+    // this.cart = [testItem1, testItem2, testItem3];
 
     this.updateCart();
   }
@@ -53,13 +56,13 @@ export class SalesComponent implements OnInit {
     const options = {title:"Confirm Transaction",
                      message:"Are you sure you wish to confirm this transaction?",
                      confirmText: "Confirm",
-                     cancelText: "Return"}
+                     cancelText: "Return"};
     this.dialogService.openConfirmCancel(options).then(ans => {
-      if(ans){
+      if (ans) {
         //make calls to inventory service here
         this.cart = [];
         this.updateCart();
-      }//else just let the dialog close and nothing changes
+      } //else just let the dialog close and nothing changes
     });
   }
 
