@@ -56,7 +56,7 @@ export class SalesComponent implements OnInit {
     const options = {title:"Confirm Transaction",
                      message:"Are you sure you wish to confirm this transaction?",
                      confirmText: "Confirm",
-                     cancelText: "Return"};
+                     cancelText: "Cancel"};
     this.dialogService.openConfirmCancel(options).then(ans => {
       if (ans) {
         //make calls to inventory service here

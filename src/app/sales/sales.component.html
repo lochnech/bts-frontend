@@ -40,6 +40,9 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-label class="priceLabel">Total Price: ${{totalPrice}}</mat-label>
-
-<button mat-button class="confirmButton" (click)="confirmTransaction()">Confirm Transaction</button>
+<div class="endTransaction">
+  <mat-label class="priceLabel">Total Price: ${{totalPrice}}</mat-label>
+</div>
+<div class="endTransaction">
+  <button mat-button class="confirmButton" (click)="confirmTransaction()">Confirm Transaction</button>
+</div>
