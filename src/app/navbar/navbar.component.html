@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <img src="assets/headerLogo.png" alt="" height="64" width="240">
   <div class="collapse navbar-collapse" *ngIf="(status | async)">
+
+    <img src="assets/headerLogo.png" alt="" height="64" width="240">
     <ul class = "navbar">
       <li><a class="nav-link" routerLink="sales">Sales</a></li>
       <li><a class="nav-link" routerLink="inventory">Inventory</a></li>
