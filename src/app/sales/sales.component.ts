@@ -35,7 +35,8 @@ export class SalesComponent implements OnInit {
   }
 
   // adds an item to the cart
-  addItem(barcode: number): void {
+  addItem(barcode: string): void {
+    console.log(barcode)
     this.inventoryService.getItemByBarcode(barcode)
       .subscribe(item => {
         this.totalPrice += item.price;
@@ -73,8 +74,7 @@ export class SalesComponent implements OnInit {
 
   // executes when submitting the barcode
   onSubmit() {
-    console.log('submitted!');
-    this.addItem(this.barcodeForm.value);
+    this.addItem(this.barcodeForm.value.barcodeText);
   }
 
   ngOnInit(): void {

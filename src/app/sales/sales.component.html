@@ -16,7 +16,7 @@
 
   <ng-container matColumnDef="itemName">
     <th mat-header-cell *matHeaderCellDef> Product Name </th>
-    <td mat-cell *matCellDef="let item"> {{item.itemName}} </td>
+    <td mat-cell *matCellDef="let item"> {{item.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="barcode">
@@ -43,6 +43,11 @@
 <div class="endTransaction">
   <mat-label class="priceLabel">Total Price: ${{totalPrice}}</mat-label>
 </div>
+
 <div class="endTransaction">
   <button mat-button class="confirmButton" (click)="confirmTransaction()">Confirm Transaction</button>
+</div>
+
+<div>
+  <button (click)="addItem('000000000001')"> test shish </button>
 </div>

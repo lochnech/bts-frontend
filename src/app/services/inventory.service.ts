@@ -22,11 +22,16 @@ export class InventoryService {
   }
 
   /** GET item by barcode. Will 404 if item not found */
-  getItemByBarcode(barcode: number): Observable<StoreItem> {
+  getItemByBarcode(barcode: string): Observable<StoreItem> {
     const url = `${this.inventoryURL}/barcode/${barcode}`;
-    return this.http.get<StoreItem>(url).pipe(
+    // return this.http.get<StoreItem>(url).pipe(
+    //   catchError(this.handleError<StoreItem>(`getItemByBarcode barcode=${barcode}`))
+    // );
+    let response =  this.http.get<StoreItem>(url).pipe(
       catchError(this.handleError<StoreItem>(`getItemByBarcode barcode=${barcode}`))
     );
+    response.subscribe(ans => console.log(ans));
+    return response;
   }
 
   /** POST item with all data. Will add item to the inventory table **/
