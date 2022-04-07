@@ -37,9 +37,10 @@ export class InventoryService {
   }
 
   /** POST a sale of a StoreItem[]. Will remove these items in these quantities from the inventory table */
-  makeSale(items: StoreItem[]): Observable<StoreItem[] | null>{
+  makeSale(items: StoreItem[]): Observable<string[] | null>{
+    const barcodes = items.map(item => item.barcode);
     const url = `${this.inventoryURL}/sale`;
-    return this.http.post<StoreItem[]>(url, items, {observe :'response'}).pipe(map(response => {
+    return this.http.post<string[]>(url, barcodes, {observe :'response'}).pipe(map(response => {
       return response.body;
     }))
   }
