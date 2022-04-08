@@ -75,9 +75,10 @@ export class SalesComponent implements OnInit {
   // executes when submitting the barcode
   onSubmit() {
     this.addItem(this.barcodeForm.value.barcodeText);
+    // @ts-ignore
+    document.getElementById('barcodeTextBox').value = '';
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
