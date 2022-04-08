@@ -1,12 +1,12 @@
 export class StoreItem {
-  name: string;
   barcode: string;
+  name: string;
   price: number;
   stock: number;
 
-  constructor(name: string, barcode: string, price: number, stock: number) {
-    this.name = name;
+  constructor(barcode: string, name: string, price: number, stock: number) {
     this.barcode = barcode;
+    this.name = name;
     this.price = price;
     this.stock = stock;
   }
