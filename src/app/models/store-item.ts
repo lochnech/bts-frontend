@@ -7,7 +7,7 @@ export class StoreItem {
   constructor(barcode: string, name: string, price: number, stock: number) {
     this.barcode = barcode;
     this.name = name;
-    this.price = price / 100;
+    this.price = price;
     this.stock = stock;
   }
 }
