@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import { MatTableDataSource } from "@angular/material/table";
 import { DialogService } from "../dialogs/dialog.service";
 import { InventoryService } from "../services/inventory.service";
+import {SnackbarService} from "../services/snackbar.service";
 
 @Component({
   selector: 'app-sales',
@@ -19,7 +20,7 @@ export class SalesComponent implements OnInit {
 
   displayedColumns = ['count', 'itemName', 'price', 'barcode', 'delete'];
 
-  constructor(public dialogService: DialogService, public formBuilder: FormBuilder, public inventoryService: InventoryService) {
+  constructor(public dialogService: DialogService, public formBuilder: FormBuilder, public inventoryService: InventoryService, public snackbar: SnackbarService) {
     this.cart = [];
     this.totalPrice = 0;
     this.cartTableData = new MatTableDataSource<StoreItem>();
@@ -44,12 +45,18 @@ export class SalesComponent implements OnInit {
     if (!this.barcodeForm.invalid) {
       this.inventoryService.getItemByBarcode(barcode)
         .subscribe(item => {
-          this.totalPrice += item.price;
-          this.cart.push(item);
-          this.updateCart();
+          if (item) {
+            this.totalPrice += item.price;
+            this.cart.push(item);
+            // @ts-ignore
+            document.getElementById('barcodeTextBox').value = '';
+            this.updateCart();
+          } else {
+            this.snackbar.open('Item not found in Inventory', 'Dismiss', 5000);
+          }
         });
     } else {
-      console.log('get good at barcodes plz');
+      this.snackbar.open('Invalid Barcode', 'Dismiss', 5000);
     }
   }
 
@@ -83,8 +90,6 @@ export class SalesComponent implements OnInit {
   // executes when submitting the barcode
   onSubmit() {
     this.addItem(this.barcodeForm.value.barcodeText);
-    // @ts-ignore
-    document.getElementById('barcodeTextBox').value = '';
   }
 
   ngOnInit(): void {}

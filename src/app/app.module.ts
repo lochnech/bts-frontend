@@ -21,6 +21,8 @@ import { DialogService } from "./dialogs/dialog.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { Interceptor } from "./models/interceptor";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { SnackbarService } from "./services/snackbar.service";
 
 @NgModule({
   declarations: [
@@ -44,9 +46,17 @@ import { Interceptor } from "./models/interceptor";
     DialogModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
   ],
-  providers: [AuthGuardService, AppComponent, NavbarComponent, DialogService, { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }],
+  providers: [
+    AuthGuardService,
+    AppComponent,
+    NavbarComponent,
+    DialogService,
+    SnackbarService,
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
