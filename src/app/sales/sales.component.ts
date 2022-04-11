@@ -75,7 +75,8 @@ export class SalesComponent implements OnInit {
                      cancelText: "Cancel"};
     this.dialogService.openConfirmCancel(options).then(ans => {
       if (ans) {
-        //make calls to inventory service here
+        this.inventoryService.makeSale(this.cart);
+        this.totalPrice = 0;
         this.cart = [];
         this.updateCart();
       } //else just let the dialog close and nothing changes
