@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreItem } from "../models/store-item";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import { MatTableDataSource } from "@angular/material/table";
 import { DialogService } from "../dialogs/dialog.service";
 import { InventoryService } from "../services/inventory.service";
@@ -23,7 +23,12 @@ export class SalesComponent implements OnInit {
     this.cart = [];
     this.totalPrice = 0;
     this.cartTableData = new MatTableDataSource<StoreItem>();
-    this.barcodeForm = this.formBuilder.group({barcodeText: ''});
+    this.barcodeForm = new FormGroup({
+      barcodeText: new FormControl('', [
+        Validators.required,
+        Validators.pattern("[0-9]+")
+      ])
+    });
 
     // // test cart
     // let testItem1 = new StoreItem('000000000001', 'among us plushie', 9.99, 2);
@@ -36,13 +41,16 @@ export class SalesComponent implements OnInit {
 
   // adds an item to the cart
   addItem(barcode: string): void {
-    console.log(barcode)
-    this.inventoryService.getItemByBarcode(barcode)
-      .subscribe(item => {
-        this.totalPrice += item.price;
-        this.cart.push(item);
-        this.updateCart();
-      });
+    if (!this.barcodeForm.invalid) {
+      this.inventoryService.getItemByBarcode(barcode)
+        .subscribe(item => {
+          this.totalPrice += item.price;
+          this.cart.push(item);
+          this.updateCart();
+        });
+    } else {
+      console.log('get good at barcodes plz');
+    }
   }
 
   // deletes an item from the cart
