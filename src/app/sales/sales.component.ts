@@ -75,11 +75,15 @@ export class SalesComponent implements OnInit {
                      cancelText: "Cancel"};
     this.dialogService.openConfirmCancel(options).then(ans => {
       if (ans) {
-        this.inventoryService.makeSale(this.cart);
-        this.totalPrice = 0;
-        this.cart = [];
-        this.updateCart();
-      } //else just let the dialog close and nothing changes
+        this.inventoryService.makeSale(this.cart).subscribe(res =>{
+          this.snackbar.open('Sale Successfully Processed', 'Dismiss', 5000);
+          this.totalPrice = 0;
+          this.cart = [];
+          this.updateCart();
+        });
+      } else {
+        this.snackbar.open('Sale Unsuccessful, Please Try Again', 'Dismiss', 10000);
+      }
     });
   }
 
