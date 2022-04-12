@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreItem } from "../models/store-item";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatTableDataSource } from "@angular/material/table";
 import { DialogService } from "../dialogs/dialog.service";
 import { InventoryService } from "../services/inventory.service";
-import {SnackbarService} from "../services/snackbar.service";
+import { SnackbarService } from "../services/snackbar.service";
 
 @Component({
   selector: 'app-sales',
@@ -17,7 +17,6 @@ export class SalesComponent implements OnInit {
   totalPrice: number;
   cartTableData: MatTableDataSource<StoreItem>;
   barcodeForm: FormGroup;
-
   displayedColumns = ['count', 'itemName', 'price', 'barcode', 'delete'];
 
   constructor(public dialogService: DialogService, public formBuilder: FormBuilder, public inventoryService: InventoryService, public snackbar: SnackbarService) {
@@ -30,13 +29,6 @@ export class SalesComponent implements OnInit {
         Validators.pattern("[0-9]+")
       ])
     });
-
-    // // test cart
-    // let testItem1 = new StoreItem('000000000001', 'among us plushie', 9.99, 2);
-    // let testItem2 = new StoreItem('000000000002', 'firefox kinemon plushie', 79.12, 19);
-    // let testItem3 = new StoreItem('000000000003', 'gallon of gasoline', 777.77, 45);
-    // this.cart = [testItem1, testItem2, testItem3];
-
     this.updateCart();
   }
 
@@ -69,17 +61,18 @@ export class SalesComponent implements OnInit {
 
   // finalizes a transaction, removes stock, and clears all fields (now implements dialogs)
   confirmTransaction(): void {
+    // options for the dialog
     const options = {title:"Confirm Transaction",
                      message:"Are you sure you wish to confirm this transaction?",
                      confirmText: "Confirm",
                      cancelText: "Cancel"};
     this.dialogService.openConfirmCancel(options).then(ans => {
       if (ans) {
-        this.inventoryService.makeSale(this.cart).subscribe(res =>{
-          this.snackbar.open('Sale Successfully Processed', 'Dismiss', 5000);
+        this.inventoryService.makeSale(this.cart).subscribe(response => {
           this.totalPrice = 0;
           this.cart = [];
           this.updateCart();
+          this.snackbar.open('Sale Successfully Processed', 'Dismiss', 5000);
         });
       } else {
         this.snackbar.open('Sale Unsuccessful, Please Try Again', 'Dismiss', 10000);
