@@ -17,4 +17,6 @@ Coding: Justin, Keegan, Logan, Tyler, Tashon
 
 Fixing all of our broken code: Mr. Simmons
 
+Backend is cool too, check them out.
+
 Shout out to whoever is reading this and maintaining the project now, thanks for keeping this running.
