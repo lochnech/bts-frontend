@@ -9,6 +9,7 @@ import { Observable } from "rxjs";
 })
 
 export class NavbarComponent {
+
   status: Observable<boolean>;
 
   constructor(public userService: UserService) {
