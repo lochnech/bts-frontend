@@ -1,12 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
   <img src="assets/headerLogo.png" alt="" height="64" width="240">
-  <div class="collapse navbar-collapse" *ngIf="(status | async)">
+  <div class="collapse navbar-collapse navbar" *ngIf="(status | async)">
+
     <ul class = "navbar">
       <li><a class="nav-link" routerLink="sales">Sales</a></li>
       <li><a class="nav-link" routerLink="inventory">Inventory</a></li>
       <li><a class="nav-link" routerLink="/" (click)="signUserOut()">Sign Out</a></li>
+    </ul>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu">
+  </div>
+  <div class="dropdown" *ngIf="(status | async)">
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="drop-button">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
@@ -15,6 +20,7 @@
         <button mat-menu-item routerLink="/" (click)="signUserOut()" >Sign Out</button>
       </mat-menu>
 
-    </ul>
   </div>
+
 </nav>
+
