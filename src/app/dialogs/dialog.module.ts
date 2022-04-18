@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule} from '@angular/core';
 import { DialogService } from './dialog.service';
-import { MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog.component';
+import { MakeChangeDialogComponent } from "./make-change-dialog.component";
 
 @NgModule({
   imports: [
@@ -10,10 +11,11 @@ import { ConfirmDialogComponent } from './confirm-dialog.component';
     MatDialogModule
   ],
   declarations: [
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    MakeChangeDialogComponent
   ],
-  exports: [ConfirmDialogComponent],
-  entryComponents: [ConfirmDialogComponent],
+  exports: [ConfirmDialogComponent, MakeChangeDialogComponent],
+  entryComponents: [ConfirmDialogComponent, MakeChangeDialogComponent],
   providers: [DialogService]
 })
 

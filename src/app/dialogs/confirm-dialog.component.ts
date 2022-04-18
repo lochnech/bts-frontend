@@ -16,16 +16,20 @@ export class ConfirmDialogComponent {
     title: string
   }, private mdDialogRef: MatDialogRef<ConfirmDialogComponent>) { }
 
-  public cancel() {
-    this.close(false);
-  }
-
   public close(value:boolean) {
     this.mdDialogRef.close(value);
   }
 
+  public cancel() {
+    this.close(false);
+  }
+
   public confirm() {
     this.close(true);
+  }
+
+  public makeChange() {
+
   }
 
   @HostListener("keydown.esc")
