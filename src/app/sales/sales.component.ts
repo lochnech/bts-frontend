@@ -65,7 +65,9 @@ export class SalesComponent implements OnInit {
     const options = {title:"Checkout",
                      message:"Are you sure you would like to complete this sale?",
                      confirmText: "Confirm",
-                     cancelText: "Cancel"};
+                     cancelText: "Cancel",
+                      total: this.totalPrice.toString()
+    };
     this.dialogService.openConfirmCancel(options).then(ans => {
       if (ans) {
         this.inventoryService.makeSale(this.cart).subscribe(response => {

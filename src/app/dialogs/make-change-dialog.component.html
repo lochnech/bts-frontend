@@ -2,5 +2,6 @@
   <h1>Make Change</h1>
 </div>
 <div mat-dialog-actions style="display: flex; justify-content: space-between;">
-  <p class="dialog-message"></p>
+  <input (change)="this.calculateChange()" ([ngModel]) = "this.moneyGiven">
+  <p>Change due is: {{this.changeDue}}</p>
 </div>

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import {DialogService} from "./dialog.service";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,8 +14,9 @@ export class ConfirmDialogComponent {
     cancelText: string,
     confirmText: string,
     message: string,
-    title: string
-  }, private mdDialogRef: MatDialogRef<ConfirmDialogComponent>) { }
+    title: string,
+    total: string
+  }, private mdDialogRef: MatDialogRef<ConfirmDialogComponent>, private dialogService: DialogService) { }
 
   public close(value:boolean) {
     this.mdDialogRef.close(value);
@@ -29,7 +31,8 @@ export class ConfirmDialogComponent {
   }
 
   public makeChange() {
-
+    let options = {totalPrice: this.data.total}
+    this.dialogService.openMakeChange(options)
   }
 
   @HostListener("keydown.esc")
