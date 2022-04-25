@@ -9,8 +9,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 
 export class MakeChangeDialogComponent {
-  changeDue: string = "";
-  moneyGiven: string = '';
+  public changeDue: string = "";
+  public moneyGiven: string = '';
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
     totalPrice: string;
@@ -22,9 +22,7 @@ export class MakeChangeDialogComponent {
   }
 
   public calculateChange(){
-    console.log(this.data)
-    console.log(this.data.totalPrice)
-    this.changeDue = (parseFloat(this.data.totalPrice) - parseFloat(this.moneyGiven)).toString();
+    this.changeDue = (parseFloat(this.moneyGiven) - parseFloat(this.data.totalPrice)).toString();
   }
 
 }

@@ -26,7 +26,7 @@ export class DialogService {
   }
   public openMakeChange(options: {totalPrice: string}) : Promise<void> {
     return new Promise<void>((res) => {
-      this.dialogRef = this.dialog.open(MakeChangeDialogComponent);
+      this.dialogRef = this.dialog.open(MakeChangeDialogComponent, {data: {totalPrice: options.totalPrice}});
       this.dialogRef.afterClosed().subscribe(ans => {
         res(ans);
       })
