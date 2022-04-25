@@ -10,9 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 export class MakeChangeDialogComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {
-    message: string,
-    firstName: string,
-    lastName: string
+    totalPrice: string;
   }, private mdDialogRef: MatDialogRef<MakeChangeDialogComponent>) { }
 
   public close(value: true) {
