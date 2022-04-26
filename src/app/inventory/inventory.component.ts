@@ -58,7 +58,7 @@ export class InventoryComponent implements OnInit {
 
   addItem() {
     this.dialogService.openAddItem().then(ans => {
-      this.inventoryService.addItem(ans)
+      this.inventoryService.addItem(ans).subscribe()
       this.updateData();
     });
 

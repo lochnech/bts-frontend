@@ -31,7 +31,7 @@ export class InventoryService {
 
   /** POST item with all data. Will add item to the inventory table **/
   addItem(item: StoreItem): Observable<StoreItem | null>{
-    return this.http.post<StoreItem>(this.inventoryURL, {item}, {observe :'response'}).pipe(map(response => {
+    return this.http.post<StoreItem>(this.inventoryURL, item, {observe :'response'}).pipe(map(response => {
       return response.body;
     }))
   }
