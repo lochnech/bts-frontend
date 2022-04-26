@@ -50,11 +50,13 @@ export class InventoryComponent {
   addItem() {
     this.dialogService.openAddItem().then(ans => {
       this.inventoryService.addItem(ans).subscribe(ans => this.updateData());
-    });
+    }).catch(ans => this.snackbar.open("Something Went Wrong Adding Item", 'Dismiss', 5000));
   }
 
   editItem(item: StoreItem) {
-    console.log('editing item: ' + item);
+    this.dialogService.openEditItem(item).then(ans => {
+      this.inventoryService.changeItem(item.barcode, ans).subscribe(ans => this.updateData());
+    }).catch(ans => this.snackbar.open("Something Went Wrong Editing Item", 'Dismiss', 5000));
   }
 
 }
