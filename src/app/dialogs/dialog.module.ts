@@ -3,17 +3,21 @@ import { NgModule} from '@angular/core';
 import { DialogService } from './dialog.service';
 import { MatDialogModule} from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog.component';
+import { AddItemDialogComponent } from './add-item-dialog.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   declarations: [
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    AddItemDialogComponent
   ],
-  exports: [ConfirmDialogComponent],
-  entryComponents: [ConfirmDialogComponent],
+  exports: [ConfirmDialogComponent, AddItemDialogComponent],
+  entryComponents: [ConfirmDialogComponent, AddItemDialogComponent],
   providers: [DialogService]
 })
 
