@@ -29,7 +29,7 @@ export class InventoryComponent implements OnInit {
   barcodeForm: FormGroup;
 
 
-  displayedColumns = ['barcode','name','price','stock'];
+  displayedColumns = ['barcode','name','price','stock','edit'];
   dataSource: MatTableDataSource<StoreItem>;
 
   constructor( public formBuilder: FormBuilder, public inventoryService: InventoryService,public dialogService: DialogService, public snackbar: SnackbarService  ) {
@@ -52,11 +52,21 @@ export class InventoryComponent implements OnInit {
 
   }
 
-
   updateData(): void {
     this.dataSource.data = this.data;
   }
 
+  addItem() {
+    this.dialogService.openAddItem().then(ans => {
+      this.inventoryService.addItem(ans)
+      this.updateData();
+    });
+
+  }
+
+  editItem(item: StoreItem) {
+    console.log('editing item: ' + item);
+  }
 
   ngOnInit(): void {
   }

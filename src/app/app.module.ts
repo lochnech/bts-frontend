@@ -35,7 +35,7 @@ import { Interceptor } from "./models/interceptor";
     WelcomeComponent,
     SalesComponent,
     InventoryComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
