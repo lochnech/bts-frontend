@@ -4,8 +4,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-make-change-dialog',
-  templateUrl: './make-change-' +
-    'dialog.component.html',
+  templateUrl: './make-change-dialog.component.html',
 })
 
 export class MakeChangeDialogComponent {
@@ -22,7 +21,10 @@ export class MakeChangeDialogComponent {
   }
 
   public calculateChange(){
-    this.changeDue = (parseFloat(this.moneyGiven) - parseFloat(this.data.totalPrice)).toString();
+    if(parseFloat(this.moneyGiven) - parseFloat(this.data.totalPrice)/100 >= 0){
+      this.changeDue = (parseFloat(this.moneyGiven) - parseFloat(this.data.totalPrice)/100).toFixed(2).toString();
+    }else{
+      this.changeDue = "invalid change, please check numbers";
+    }
   }
-
 }
