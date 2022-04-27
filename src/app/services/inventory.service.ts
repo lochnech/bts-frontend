@@ -44,6 +44,14 @@ export class InventoryService {
     }))
   }
 
+  /** PUT item with all data. Will add item to the inventory table **/
+  deleteItem(barcode: string): Observable<StoreItem | null>{
+    const url = `${this.inventoryURL}/barcode/${barcode}`;
+    return this.http.delete<StoreItem>(url, {observe :'response'}).pipe(map(response => {
+      return response.body;
+    }))
+  }
+
   /** POST a sale of a StoreItem[]. Will remove these items in these quantities from the inventory table */
   makeSale(items: StoreItem[]): Observable<StoreItem[] | null>{
     const barcodes = items.map(item => item.barcode);

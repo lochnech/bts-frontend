@@ -4,6 +4,7 @@ import { ConfirmDialogComponent } from './confirm-dialog.component';
 import {AddItemDialogComponent} from "./add-item-dialog.component";
 import {EditItemDialogComponent} from "./edit-item-dialog.component";
 import {StoreItem} from "../models/store-item";
+import {ConfirmDeleteDialogComponent} from "./confirm-delete-dialog.component";
 
 @Injectable()
 export class DialogService {
@@ -48,6 +49,15 @@ export class DialogService {
         } else {
           res(ans)
         }
+      });
+    })
+  }
+
+  public openConfirmDelete(item: StoreItem): Promise<Boolean> {
+    return new Promise<boolean>((res) => {
+      this.dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {data: item});
+      this.dialogRef.afterClosed().subscribe( (ans: boolean) => {
+        res(ans)
       });
     })
   }

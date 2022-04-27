@@ -23,7 +23,7 @@ export class InventoryComponent {
   totalPrice: number;
   barcodeForm: FormGroup;
 
-  displayedColumns = ['barcode','name','price','stock','edit'];
+  displayedColumns = ['barcode','name','price','stock','edit','delete'];
   dataSource: MatTableDataSource<StoreItem>;
 
   constructor(public inventoryService: InventoryService,public dialogService: DialogService, public snackbar: SnackbarService) {
@@ -57,6 +57,14 @@ export class InventoryComponent {
     this.dialogService.openEditItem(item).then(ans => {
       this.inventoryService.changeItem(item.barcode, ans).subscribe(ans => this.updateData());
     }).catch(ans => this.snackbar.open("Something Went Wrong Editing Item", 'Dismiss', 5000));
+  }
+
+  deleteItem(item: StoreItem) {
+    this.dialogService.openConfirmDelete(item).then(ans => {
+      if(ans){
+        this.inventoryService.deleteItem(item.barcode).subscribe(ans => this.updateData());
+      }
+    }).catch(ans => this.snackbar.open("Something Went Wrong Deleting Item", 'Dismiss', 5000));
   }
 
 }

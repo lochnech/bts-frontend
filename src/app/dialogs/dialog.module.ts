@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule} from '@angular/core';
 import { DialogService } from './dialog.service';
 import { MatDialogModule} from '@angular/material/dialog';
+import {FormsModule} from "@angular/forms";
 import { ConfirmDialogComponent } from './confirm-dialog.component';
 import { AddItemDialogComponent } from './add-item-dialog.component';
 import {EditItemDialogComponent} from "./edit-item-dialog.component";
-import {FormsModule} from "@angular/forms";
+import {ConfirmDeleteDialogComponent} from "./confirm-delete-dialog.component";
 
 @NgModule({
   imports: [
@@ -16,10 +17,11 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     ConfirmDialogComponent,
     AddItemDialogComponent,
-    EditItemDialogComponent
+    EditItemDialogComponent,
+    ConfirmDeleteDialogComponent
   ],
-  exports: [ConfirmDialogComponent, AddItemDialogComponent, EditItemDialogComponent],
-  entryComponents: [ConfirmDialogComponent, AddItemDialogComponent, EditItemDialogComponent],
+  exports: [ConfirmDialogComponent, AddItemDialogComponent, EditItemDialogComponent, ConfirmDeleteDialogComponent],
+  entryComponents: [ConfirmDialogComponent, AddItemDialogComponent, EditItemDialogComponent, ConfirmDeleteDialogComponent],
   providers: [DialogService]
 })
 
