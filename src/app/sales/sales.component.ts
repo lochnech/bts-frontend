@@ -90,6 +90,9 @@ export class SalesComponent implements OnInit {
     this.addItem(this.barcodeForm.value.barcodeText);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // @ts-ignore
+    document.getElementById("barcodeTextBox").focus();
+  }
 
 }
