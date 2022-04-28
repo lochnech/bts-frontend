@@ -29,14 +29,14 @@ export class DialogService {
     })
   }
 
-  public openAddItem(): Promise<StoreItem> {
-    return new Promise<StoreItem>((res, rej) => {
+  public openAddItem(): Promise<boolean> {
+    return new Promise<boolean>((res, rej) => {
       this.dialogRef = this.dialog.open(AddItemDialogComponent);
-      this.dialogRef.afterClosed().subscribe((ans: any) =>{
+      this.dialogRef.afterClosed().subscribe((ans: boolean) =>{
         if (!ans) {
-          rej()
+          rej(false)
         } else {
-          res(ans)
+          res(true)
         }
       });
     })

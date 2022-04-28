@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import { StoreItem } from "../models/store-item";
 import { catchError, map } from "rxjs/operators";
 import { Observable, of } from "rxjs";
@@ -30,10 +30,8 @@ export class InventoryService {
   }
 
   /** POST item with all data. Will add item to the inventory table **/
-  addItem(item: StoreItem): Observable<StoreItem | null>{
-    return this.http.post<StoreItem>(this.inventoryURL, item, {observe :'response'}).pipe(map(response => {
-      return response.body;
-    }))
+  addItem(item: StoreItem): Observable<HttpResponse<StoreItem>>{
+    return this.http.post<StoreItem>(this.inventoryURL, item, {observe :'response'});
   }
 
   /** PUT item with all data. Will add item to the inventory table **/

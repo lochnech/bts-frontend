@@ -67,8 +67,8 @@ export class InventoryComponent implements OnInit{
 
   addItem() {
     this.dialogService.openAddItem().then(ans => {
-      this.inventoryService.addItem(ans).subscribe(ans => this.updateData());
-    }).catch(ans => this.snackbar.open("Something Went Wrong Adding Item", 'Dismiss', 5000));
+      this.updateData();
+    }).catch(ans => this.snackbar.open("Item Not Added", 'Dismiss', 5000));
   }
 
   editItem(item: StoreItem) {
