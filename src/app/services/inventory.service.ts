@@ -39,7 +39,7 @@ export class InventoryService {
     const url = `${this.inventoryURL}/barcode/${barcode}`;
     return this.http.put<StoreItem>(url, item, {observe :'response'}).pipe(map(response => {
       return response.body;
-    }))
+    }));
   }
 
   /** PUT item with all data. Will add item to the inventory table **/
@@ -47,7 +47,7 @@ export class InventoryService {
     const url = `${this.inventoryURL}/barcode/${barcode}`;
     return this.http.delete<StoreItem>(url, {observe :'response'}).pipe(map(response => {
       return response.body;
-    }))
+    }));
   }
 
   /** POST a sale of a StoreItem[]. Will remove these items in these quantities from the inventory table */
