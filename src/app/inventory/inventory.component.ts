@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {InventoryService} from "../services/inventory.service";
-import {MatTableDataSource} from "@angular/material/table";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {DialogService} from "../dialogs/dialog.service";
-import {SnackbarService} from "../services/snackbar.service";
+import { InventoryService } from "../services/inventory.service";
+import { MatTableDataSource } from "@angular/material/table";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { DialogService } from "../dialogs/dialog.service";
+import { SnackbarService } from "../services/snackbar.service";
 
 export interface StoreItem {
   barcode: string;
@@ -24,12 +24,12 @@ export class InventoryComponent {
   barcodeForm: FormGroup;
 
   displayedColumns = ['barcode','name','price','stock','edit','delete'];
-  dataSource: MatTableDataSource<StoreItem>;
+  inventoryData: MatTableDataSource<StoreItem>;
 
   constructor(public inventoryService: InventoryService,public dialogService: DialogService, public snackbar: SnackbarService) {
     this.data = [];
     this.totalPrice = 0;
-    this.dataSource = new MatTableDataSource<StoreItem>()
+    this.inventoryData = new MatTableDataSource<StoreItem>()
 
     this.barcodeForm = new FormGroup({
       barcodeText: new FormControl('', [
@@ -42,7 +42,7 @@ export class InventoryComponent {
 
   updateData(): void {
     this.inventoryService.getInventory().subscribe(answers => {
-      this.dataSource.data = answers;
+      this.inventoryData.data = answers;
       this.data = answers
     });
   }

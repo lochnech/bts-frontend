@@ -17,6 +17,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
 
 // services
@@ -37,22 +38,23 @@ import { Interceptor } from "./models/interceptor";
     InventoryComponent,
     NavbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    DialogModule,
-    FormsModule,
-    HttpClientModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatMenuModule,
-    MatSnackBarModule,
-    MatTableModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        DialogModule,
+        FormsModule,
+        HttpClientModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatMenuModule,
+        MatSnackBarModule,
+        MatTableModule,
+        ReactiveFormsModule,
+        MatSortModule,
+    ],
   providers: [
     AppComponent,
     AuthGuardService,
