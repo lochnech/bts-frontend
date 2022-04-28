@@ -4,6 +4,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SalesComponent } from './sales/sales.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 //modules
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +38,7 @@ import { Interceptor } from "./models/interceptor";
     SalesComponent,
     InventoryComponent,
     NavbarComponent,
+    TransactionsComponent,
   ],
     imports: [
         BrowserModule,
