@@ -1,9 +1,13 @@
 <div>
  <button class="add-item-button" (click)="addItem()"> Add Item To Inventory </button>
 </div>
-
 <div>
-  <table mat-table [dataSource]="inventoryData" matSort (matSortChange)="updateData()" class="stock">
+  <mat-form-field class="filter">
+    <input class = "filter-input" [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)"  matInput placeholder="Apply Filter" >
+  </mat-form-field>
+</div>
+<div>
+  <table #table1 mat-table [dataSource]="inventoryData" matSort (matSortChange)="updateData()" class="stock">
 
     <ng-container matColumnDef="barcode">
       <th mat-header-cell mat-sort-header *matHeaderCellDef> Barcode </th>

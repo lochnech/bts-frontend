@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { InventoryService } from "../services/inventory.service";
 import { MatTableDataSource } from "@angular/material/table";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { DialogService } from "../dialogs/dialog.service";
 import { SnackbarService } from "../services/snackbar.service";
+import {MatSort} from "@angular/material/sort";
 
 export interface StoreItem {
   barcode: string;
@@ -18,13 +19,30 @@ export interface StoreItem {
   styleUrls: ['./inventory.component.css']
 })
 
-export class InventoryComponent {
+export class InventoryComponent implements OnInit{
   data: StoreItem [];
   totalPrice: number;
   barcodeForm: FormGroup;
+  filterValue: any;
 
   displayedColumns = ['barcode','name','price','stock','edit','delete'];
   inventoryData: MatTableDataSource<StoreItem>;
+
+  @ViewChild('table1', { read: MatSort, static: true }) sort1: MatSort = new MatSort();
+
+  ngOnInit() {
+    this.inventoryData.filterPredicate = (data: StoreItem, filter: string) => {
+      return data.barcode.includes(filter);
+    };
+  }
+
+  ngAfterViewInit() {
+    this.inventoryData.sort = this.sort1;
+  }
+
+  applyFilter(filterValue: any) {
+    this.inventoryData.filter = this.filterValue.trim().toLowerCase();
+  }
 
   constructor(public inventoryService: InventoryService,public dialogService: DialogService, public snackbar: SnackbarService) {
     this.data = [];
