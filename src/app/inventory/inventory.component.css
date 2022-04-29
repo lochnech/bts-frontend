@@ -1,14 +1,21 @@
 .stock{
-  width: 100%;
+  width: 98%;
 }
 
-.add-item-button{
-  margin-left: 10px;
+table {
+  margin: auto;
+  min-width: 450px;
+  width: 98%;
+}
+
+.add-item-button {
+  margin-top: 1vw;
+  margin-left: 2vw;
 }
 
 .filter{
-  margin-left: 10px;
+  margin-left: 2vw;
 }
 .filter-input{
-  margin-left: 10px;
+  margin-left: 2vw;
 }
