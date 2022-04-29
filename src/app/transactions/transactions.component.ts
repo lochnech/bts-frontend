@@ -16,6 +16,7 @@ export class TransactionsComponent implements OnInit {
 
   constructor(public transactionService: TransactionService, public dialogService: DialogService) {
     this.transactionsData = new MatTableDataSource<Transaction>();
+    this.updateData();
   }
 
   viewItems(transaction: Transaction): void {
