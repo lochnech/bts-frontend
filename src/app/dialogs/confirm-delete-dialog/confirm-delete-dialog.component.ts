@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import {StoreItem} from "../../models/store-item";
+import { StoreItem } from "../../models/store-item";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

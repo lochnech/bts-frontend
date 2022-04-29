@@ -1,7 +1,7 @@
 import { Component, HostListener, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { TransactionItem } from "../../models/transaction-item";
-import {Transaction} from "../../models/transaction";
+import { Transaction } from "../../models/transaction";
 
 
 @Component({
