@@ -8,6 +8,7 @@ import { AddItemDialogComponent } from './add-item-dialog.component';
 import { EditItemDialogComponent } from "./edit-item-dialog.component";
 import { ConfirmDeleteDialogComponent } from "./confirm-delete-dialog.component";
 import { MakeChangeDialogComponent } from "./make-change-dialog.component";
+import { ViewItemsDialogComponent } from "./view-items-dialog.component";
 
 @NgModule({
   imports: [
@@ -20,10 +21,25 @@ import { MakeChangeDialogComponent } from "./make-change-dialog.component";
     AddItemDialogComponent,
     EditItemDialogComponent,
     ConfirmDeleteDialogComponent,
-    MakeChangeDialogComponent
+    MakeChangeDialogComponent,
+    ViewItemsDialogComponent
   ],
-  exports: [ConfirmDialogComponent, AddItemDialogComponent, EditItemDialogComponent, ConfirmDeleteDialogComponent, MakeChangeDialogComponent],
-  entryComponents: [ConfirmDialogComponent, AddItemDialogComponent, EditItemDialogComponent, ConfirmDeleteDialogComponent, MakeChangeDialogComponent],
+  exports: [
+    ConfirmDialogComponent,
+    AddItemDialogComponent,
+    EditItemDialogComponent,
+    ConfirmDeleteDialogComponent,
+    MakeChangeDialogComponent,
+    ViewItemsDialogComponent
+  ],
+  entryComponents: [
+    ConfirmDialogComponent,
+    AddItemDialogComponent,
+    EditItemDialogComponent,
+    ConfirmDeleteDialogComponent,
+    MakeChangeDialogComponent,
+    ViewItemsDialogComponent
+  ],
   providers: [DialogService]
 })
 

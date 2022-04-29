@@ -5,7 +5,9 @@ import { AddItemDialogComponent } from "./add-item-dialog.component";
 import { EditItemDialogComponent } from "./edit-item-dialog.component";
 import { ConfirmDeleteDialogComponent } from "./confirm-delete-dialog.component";
 import { MakeChangeDialogComponent } from "./make-change-dialog.component";
+import { ViewItemsDialogComponent } from "./view-items-dialog.component";
 import { StoreItem } from "../models/store-item";
+import { Transaction } from "../models/transaction";
 
 @Injectable()
 export class DialogService {
@@ -26,7 +28,7 @@ export class DialogService {
         }
       });
       this.dialogRef.afterClosed().subscribe((ans: boolean) => res(ans));
-    })
+    });
   }
 
   public openAddItem(): Promise<boolean> {
@@ -59,7 +61,7 @@ export class DialogService {
     return new Promise<boolean>((res) => {
       this.dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {data: item});
       this.dialogRef.afterClosed().subscribe( (ans: boolean) => {
-        res(ans)
+        res(ans);
       });
     })
   }
@@ -70,6 +72,14 @@ export class DialogService {
       this.dialogRef.afterClosed().subscribe(ans => {
         res(ans);
       })
-    })
+    });
   }
+
+  public openViewItems(transaction: Transaction): Promise<void> {
+    return new Promise<void>((res) => {
+      this.dialogRef = this.dialog.open(ViewItemsDialogComponent);
+      this.dialogRef.afterClosed().subscribe(ans => res(ans));
+    });
+  }
+
 }

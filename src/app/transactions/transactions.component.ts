@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionService } from "../services/transaction.service";
+import { MatTableDataSource } from "@angular/material/table";
+import { Transaction } from "../models/transaction";
+import { DialogService } from "../dialogs/dialog.service";
 
 @Component({
   selector: 'app-transactions',
@@ -7,7 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns = ['id','price', 'itemCount', 'time', 'viewItems'];
+  transactionsData: MatTableDataSource<Transaction>
+
+  constructor(public transactionService: TransactionService, public dialogService: DialogService) {
+    this.transactionsData = new MatTableDataSource<Transaction>();
+  }
+
+  viewItems(transaction: Transaction): void {
+    this.dialogService.openViewItems(transaction).then(ans => {
+      console.log("viewing items");
+    });
+  }
+
+  updateData(): void {
+    this.transactionService.getTransactions().subscribe(answers => {
+      this.transactionsData.data = answers;
+    });
+  }
 
   ngOnInit(): void {
   }
