@@ -1,4 +1,4 @@
-import {TransactionItem} from "./transaction-item";
+import { TransactionItem } from "./transaction-item";
 
 export class Transaction {
   id: number;
