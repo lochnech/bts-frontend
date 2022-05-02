@@ -9,13 +9,15 @@ import { EditItemDialogComponent } from "./edit-item-dialog/edit-item-dialog.com
 import { ConfirmDeleteDialogComponent } from "./confirm-delete-dialog/confirm-delete-dialog.component";
 import { MakeChangeDialogComponent } from "./make-change-dialog/make-change-dialog.component";
 import { ViewItemsDialogComponent } from "./view-items-dialog/view-items-dialog.component";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatDialogModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        MatDialogModule,
+        FormsModule,
+        MatTableModule
+    ],
   declarations: [
     ConfirmDialogComponent,
     AddItemDialogComponent,

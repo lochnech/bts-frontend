@@ -20,9 +20,8 @@ export class TransactionsComponent implements OnInit {
   }
 
   viewItems(transaction: Transaction): void {
-    this.dialogService.openViewItems(transaction).then(ans => {
-      console.log("viewing items");
-    });
+    let options = {transaction: transaction}
+    this.dialogService.openViewItems(options).then();
   }
 
   updateData(): void {
