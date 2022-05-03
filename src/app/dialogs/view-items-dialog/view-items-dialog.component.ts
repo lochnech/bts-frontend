@@ -1,8 +1,9 @@
-import { Component, HostListener, Inject } from "@angular/core";
+import {Component, HostListener, Inject, Input} from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { TransactionItem } from "../../models/transaction-item";
 import { Transaction } from "../../models/transaction";
 import { MatTableDataSource } from "@angular/material/table";
+import {TransactionService} from "../../services/transaction.service";
 
 @Component({
   selector: 'app-view-items-dialog',
@@ -11,15 +12,12 @@ import { MatTableDataSource } from "@angular/material/table";
 
 export class ViewItemsDialogComponent {
 
-  items: TransactionItem[];
   displayedColumns = ['barcode'];
   transactionItemData: MatTableDataSource<TransactionItem>;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {
-    transaction: Transaction;
-  }, private mdDialogRef: MatDialogRef<ViewItemsDialogComponent>) {
-    this.items = data.transaction.items;
-    this.transactionItemData = new MatTableDataSource<TransactionItem>();
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {transactionItems: TransactionItem[]}, private mdDialogRef: MatDialogRef<ViewItemsDialogComponent>) {
+
+    this.transactionItemData = new MatTableDataSource<TransactionItem>(data.transactionItems);
   }
 
   public close() {

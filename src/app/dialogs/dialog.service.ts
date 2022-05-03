@@ -7,7 +7,7 @@ import { ConfirmDeleteDialogComponent } from "./confirm-delete-dialog/confirm-de
 import { MakeChangeDialogComponent } from "./make-change-dialog/make-change-dialog.component";
 import { ViewItemsDialogComponent } from "./view-items-dialog/view-items-dialog.component";
 import { StoreItem } from "../models/store-item";
-import { Transaction } from "../models/transaction";
+import { TransactionItem } from "../models/transaction-item";
 
 @Injectable()
 export class DialogService {
@@ -75,9 +75,9 @@ export class DialogService {
     });
   }
 
-  public openViewItems(options: {transaction: Transaction}): Promise<void> {
+  public openViewItems(options: {transactionItems: TransactionItem[]}): Promise<void> {
     return new Promise<void>((res) => {
-      this.dialogRef = this.dialog.open(ViewItemsDialogComponent, {data: {transaction: options.transaction}});
+      this.dialogRef = this.dialog.open(ViewItemsDialogComponent, {data: {transaction: options.transactionItems}});
       this.dialogRef.afterClosed().subscribe(ans => res(ans));
     });
   }

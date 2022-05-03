@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { Transaction } from "../models/transaction";
 import { catchError } from "rxjs/operators";
+import {TransactionItem} from "../models/transaction-item";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,13 @@ export class TransactionService {
   getTransactions(): Observable<Transaction[]> {
     return this.http.get<Transaction[]>(this.transactionURL).pipe(
       catchError(this.handleError<Transaction[]>('getTransactions', [])));
+  }
+
+  /** GET transaction items by taking a transaction. Will return a TransactionItem[] observable */
+  getItemsByTransaction(transaction: Transaction): Observable<TransactionItem[]> {
+    const url = `${this.transactionURL}/id/${transaction.id}`;
+    return this.http.get<TransactionItem[]>(url).pipe(
+      catchError(this.handleError<TransactionItem[]>('getItemsByTransaction', [])));
   }
 
   /**
