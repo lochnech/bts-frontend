@@ -14,3 +14,16 @@
 .dropdown{
   margin-right: auto;
 }
+
+.navbar{
+  display: flex;
+}
+
+.drop-button {
+  background-color: white;
+  border: white;
+  margin-top: 11px;
+
+
+}
+

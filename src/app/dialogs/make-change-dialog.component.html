@@ -1,0 +1,12 @@
+<div class="header">
+  <h1>Make Change</h1>
+</div>
+<div mat-dialog-actions style="display: block; vertical-align: middle">
+  <p>Enter Amount Given in Dollars</p>
+  <div>
+    <input (change)="this.calculateChange()" [(ngModel)] = "this.moneyGiven">
+    <button (click)="this.calculateChange()">Calculate Change</button>
+  </div>
+  <p *ngIf="this.changeDue != ''">Change due is: ${{this.changeDue}}</p>
+  <button (click)="this.close(true)">Close</button>
+</div>

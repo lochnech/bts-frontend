@@ -17,6 +17,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
 
 // services
@@ -37,6 +38,7 @@ import { ViewUsersComponent } from './view-users/view-users.component';
     SalesComponent,
     InventoryComponent,
     NavbarComponent,
+<<<<<<< HEAD
     ViewUsersComponent
   ],
   imports: [
@@ -54,7 +56,26 @@ import { ViewUsersComponent } from './view-users/view-users.component';
     MatSnackBarModule,
     MatTableModule,
     ReactiveFormsModule,
+=======
+>>>>>>> 0e09bfaf29fad27dac4537f251cdfe04f0c6fcda
   ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        DialogModule,
+        FormsModule,
+        HttpClientModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatMenuModule,
+        MatSnackBarModule,
+        MatTableModule,
+        ReactiveFormsModule,
+        MatSortModule,
+    ],
   providers: [
     AppComponent,
     AuthGuardService,

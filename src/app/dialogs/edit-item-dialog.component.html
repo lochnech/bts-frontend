@@ -1,0 +1,13 @@
+<div class="header">
+  <h1 mat-dialog-title> Edit Store Item </h1>
+</div>
+<div>
+  <input [(ngModel)] = "this.barcode"> <p>Barcode</p>
+  <input [(ngModel)] = "this.name"> <p>Name</p>
+  <input type="number" [(ngModel)] = "this.price"> <p>Price ($)</p>
+  <input type="number" [(ngModel)] = "this.stock"> <p>Stock</p>
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: space-between;">
+  <button class="btn btn-cancel" style="margin-right:10px;" (click)="cancel()"> Cancel </button>
+  <button class="btn" (click)="confirm()"> Finish Editing </button>
+</div>
