@@ -38,26 +38,10 @@ import { ViewUsersComponent } from './view-users/view-users.component';
     SalesComponent,
     InventoryComponent,
     NavbarComponent,
-<<<<<<< HEAD
+
     ViewUsersComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    DialogModule,
-    FormsModule,
-    HttpClientModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatMenuModule,
-    MatSnackBarModule,
-    MatTableModule,
-    ReactiveFormsModule,
-=======
->>>>>>> 0e09bfaf29fad27dac4537f251cdfe04f0c6fcda
+
+
   ],
     imports: [
         BrowserModule,
