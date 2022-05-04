@@ -20,11 +20,8 @@ export class TransactionsComponent implements OnInit {
   }
 
   viewItems(transaction: Transaction): void {
-    this.transactionService.getItemsByTransaction(transaction).subscribe(result => {
-      console.log(result)
-      let options = {transactionItems: result};
-      this.dialogService.openViewItems(options).then();
-    });
+    let options = {transactionID: transaction.id};
+    this.dialogService.openViewItems(options).then();
   }
 
   updateData(): void {

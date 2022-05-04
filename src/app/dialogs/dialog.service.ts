@@ -75,9 +75,9 @@ export class DialogService {
     });
   }
 
-  public openViewItems(options: {transactionItems: TransactionItem[]}): Promise<void> {
+  public openViewItems(options: {transactionID: number}): Promise<void> {
     return new Promise<void>((res) => {
-      this.dialogRef = this.dialog.open(ViewItemsDialogComponent, {data: {transaction: options.transactionItems}});
+      this.dialogRef = this.dialog.open(ViewItemsDialogComponent, {data: {transactionID: options.transactionID}});
       this.dialogRef.afterClosed().subscribe(ans => res(ans));
     });
   }

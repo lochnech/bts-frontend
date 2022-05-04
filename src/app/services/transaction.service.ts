@@ -15,15 +15,23 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { }
 
-  /** GET full transaction history. Will return a Transaction[] observable */
+  /** GET full transaction history with no items. Will return a Transaction[] observable */
   getTransactions(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.transactionURL).pipe(
+    const url = `${this.transactionURL}/summary`;
+    return this.http.get<Transaction[]>(url).pipe(
       catchError(this.handleError<Transaction[]>('getTransactions', [])));
   }
 
   /** GET transaction items by taking a transaction. Will return a TransactionItem[] observable */
   getItemsByTransaction(transaction: Transaction): Observable<TransactionItem[]> {
-    const url = `${this.transactionURL}/id/${transaction.id}`;
+    const url = `${this.transactionURL}/items/${transaction.id}`;
+    return this.http.get<TransactionItem[]>(url).pipe(
+      catchError(this.handleError<TransactionItem[]>('getItemsByTransaction', [])));
+  }
+
+  /** GET transaction items by taking a transaction ID. Will return a TransactionItem[] observable */
+  getItemsByID(id: number): Observable<TransactionItem[]> {
+    const url = `${this.transactionURL}/items/${id}`;
     return this.http.get<TransactionItem[]>(url).pipe(
       catchError(this.handleError<TransactionItem[]>('getItemsByTransaction', [])));
   }
