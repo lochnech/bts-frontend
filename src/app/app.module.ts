@@ -28,6 +28,7 @@ import { SnackbarService } from "./services/snackbar.service";
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { Interceptor } from "./models/interceptor";
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { Interceptor } from "./models/interceptor";
     WelcomeComponent,
     SalesComponent,
     InventoryComponent,
-    NavbarComponent
+    NavbarComponent,
+    ViewUsersComponent
   ],
   imports: [
     BrowserModule,
