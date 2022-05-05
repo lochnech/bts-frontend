@@ -12,12 +12,12 @@ import {TransactionService} from "../../services/transaction.service";
 
 export class ViewItemsDialogComponent {
 
-  displayedColumns = ['name', 'barcode', 'amount', 'ppu', 'total_price' ];
+  displayedColumns = ['name', 'barcode', 'amount', 'ppu'];
   transactionID: number;
   transactionItemData: MatTableDataSource<TransactionItem>;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {transactionID: number},
-              private mdDialogRef: MatDialogRef<ViewItemsDialogComponent>,
+              private dialogRef: MatDialogRef<ViewItemsDialogComponent>,
               private transactionService: TransactionService) {
     this.transactionID = data.transactionID;
     this.transactionItemData = new MatTableDataSource<TransactionItem>();
@@ -31,7 +31,7 @@ export class ViewItemsDialogComponent {
   }
 
   public close() {
-    this.mdDialogRef.close();
+    this.dialogRef.close();
   }
 
   @HostListener("keydown.esc")
