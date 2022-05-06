@@ -25,6 +25,6 @@ export class WelcomeComponent {
   }
 
   signIn() {
-    this.userService.signIn();
+    this.route.navigate([`/signIn`])
   }
 }

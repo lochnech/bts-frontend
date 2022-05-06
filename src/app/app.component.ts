@@ -9,7 +9,5 @@ import { UserService } from "./services/user.service";
 export class AppComponent {
   title = 'bts-frontend';
 
-  constructor(private userService: UserService) {
-    this.userService.loadGapi();
-  }
+  constructor() {}
 }
