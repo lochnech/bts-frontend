@@ -12,9 +12,11 @@ import { environment } from "../../environments/environment";
 export class UserService {
 
   status: BehaviorSubject<boolean>;
+  userToken: BehaviorSubject<string>;
 
   constructor(private route: Router, private http: HttpClient) {
-    this.status = new BehaviorSubject<boolean>(false)
+    this.status = new BehaviorSubject<boolean>(false);
+    this.userToken = new BehaviorSubject<string>("");
   }
 
   public signIn(username: string, password: string): Promise<boolean> {
@@ -25,21 +27,24 @@ export class UserService {
     //     }
     //   })
     return new Promise<boolean>((res, rej) => {
-      // this.http.post<boolean>(environment.signInURL, {username: username, password: password}, {observe: 'response'})
-      //   .subscribe((response) => {
-      //     if (response.status == 200) {
-      //       this.status.next(true);
-      //       res(true);
-      //     } else if (response.status == 401) {
-      //       this.status.next(false);
-      //       res(false);
-      //     } else {
-      //       this.status.next(false);
-      //       rej();
-      //     }
-      //   });
-      this.status.next(true);
-      res(true);
+      this.http.post<string>(environment.signInURL, {username: username, password: password}, {observe: 'response'})
+        .subscribe((response) => {
+          if (response.status == 200) {
+            this.status.next(true);
+            this.userToken.next(response.body || "")
+            res(true);
+          } else if (response.status == 401) {
+            this.status.next(false);
+            res(false);
+          } else {
+            this.status.next(false);
+            rej();
+          }
+        });
+
+      //Fast pass
+      // this.status.next(true);
+      // res(true);
     });
   }
 

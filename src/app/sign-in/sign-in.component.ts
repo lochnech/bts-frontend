@@ -22,11 +22,10 @@ export class SignInComponent {
   signIn() {
     if(this.info.valid){
       this.userService.signIn(this.info.controls.username.value, this.info.controls.password.value).then(ans => {
-        if (ans) {
+        if(ans) {
           this.router.navigate([`sales`]).then();
         } else {
           this.snackbar.open("The username or password was invalid", "Dismiss", 5000);
-
         }
       }).catch(ans => this.snackbar.open("bad", "Dismiss", 5000));
     } else {
