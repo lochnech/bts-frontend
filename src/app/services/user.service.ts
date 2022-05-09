@@ -42,7 +42,7 @@ export class UserService {
           }
         });
 
-      //Fast pass
+      // // Fast pass
       // this.status.next(true);
       // res(true);
     });
