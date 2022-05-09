@@ -1,6 +1,7 @@
 .info {
   margin: auto;
-  width: 20%;
+  margin-top: 20vh;
+  width: 15vw;
   border: 3px solid green;
   padding: 10px;
 }
@@ -12,7 +13,14 @@ div{
   margin-right: auto;
 }
 
-.form-input{
-  height: 10%
+p{
+  margin-bottom: 0;
 }
+
+.form-input{
+  margin-top: 0;
+  height: 10%;
+  width: 15vw
+}
+
 
