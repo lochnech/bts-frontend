@@ -19,3 +19,10 @@ table {
 .filter-input{
   margin-left: 2vw;
 }
+.stock {
+  width: 90%;
+  border: 5px solid black;
+  margin: auto;
+  background-color: lightgrey;
+}
+

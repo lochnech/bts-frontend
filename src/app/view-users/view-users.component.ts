@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {Token} from "@angular/compiler";
 
 
 
 export interface User {
   username: string;
-  password: string;
+  admin: boolean;
 }
 
 
@@ -17,7 +18,7 @@ export interface User {
   templateUrl: './view-users.component.html',
 })
 export class ViewUsersComponent implements OnInit {
-  displayedColumns: string[] = ['username', 'password'];
+  displayedColumns: string[] = ['username', 'password', 'boolean'];
   dataSource: MatTableDataSource<any>
 
 
@@ -26,7 +27,11 @@ export class ViewUsersComponent implements OnInit {
   constructor(private userService: UserService) {
     this.dataSource = new MatTableDataSource<any>()
 
+
+
   }
+
+
 
 
 
