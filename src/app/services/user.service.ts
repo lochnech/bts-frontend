@@ -52,7 +52,10 @@ export class UserService {
     // if (gapi.auth2 !== undefined) {
     //   gapi.auth2.getAuthInstance().signOut();
     // }
-    this.route.navigate(['/welcome']).then(() => location.reload())
+    this.route.navigate(['/welcome']).then(() => {
+      this.status.next(false);
+      location.reload();
+    })
   }
 
   // public getBearerToken(): string {
