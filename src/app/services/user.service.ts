@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { environment } from "../../environments/environment";
+import {StoreItem} from "../models/store-item";
+import {catchError, map} from "rxjs/operators";
+import {User} from "../models/user";
 // import data from '../../../googleauthinfo.json';
 
 @Injectable({
@@ -13,6 +16,7 @@ export class UserService {
 
   status: BehaviorSubject<boolean>;
   userToken: BehaviorSubject<string>;
+  private userURL = environment.userURL;
 
   constructor(private route: Router, private http: HttpClient) {
     this.status = new BehaviorSubject<boolean>(false);
@@ -58,8 +62,49 @@ export class UserService {
     })
   }
 
+  /** GET all users. Will return a User[] observable */
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.userURL).pipe(
+      catchError(this.handleError<User[]>('getUsers', [])));
+  }
+
+  /** POST user with all data. Will add user to the users table **/
+  addUser(user: User): Observable<HttpResponse<User>>{
+    return this.http.post<User>(this.userURL, user, {observe :'response'});
+  }
+
+  /** PUT user with all data. Will update user in the users table **/
+  changeUser(username: string, user: User): Observable<User | null>{
+    const url = `${this.userURL}/username/${username}`;
+    return this.http.put<User>(url, user, {observe :'response'}).pipe(map(response => {
+      return response.body;
+    }))
+  }
+
+  /** DELETE user with all data. Will delete user from the users table **/
+  deleteUser(username: string): Observable<User | null>{
+    const url = `${this.userURL}/username/${username}`;
+    return this.http.delete<User>(url, {observe :'response'}).pipe(map(response => {
+      return response.body;
+    }))
+  }
+
   // public getBearerToken(): string {
   //   return gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token;
   // }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); // log to console instead
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 
 }

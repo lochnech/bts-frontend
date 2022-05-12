@@ -1,7 +1,7 @@
 import {Component, HostListener, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {SnackbarService} from "../services/snackbar.service";
-import {StoreItem} from "../models/store-item";
+import {SnackbarService} from "../../services/snackbar.service";
+import {StoreItem} from "../../models/store-item";
 
 @Component({
   selector: 'app-edit-item-dialog',

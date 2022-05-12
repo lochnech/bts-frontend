@@ -42,7 +42,7 @@ export class InventoryService {
     }))
   }
 
-  /** PUT item with all data. Will add item to the inventory table **/
+  /** DELETE item with all data. Will delete item from the inventory table **/
   deleteItem(barcode: string): Observable<StoreItem | null>{
     const url = `${this.inventoryURL}/barcode/${barcode}`;
     return this.http.delete<StoreItem>(url, {observe :'response'}).pipe(map(response => {

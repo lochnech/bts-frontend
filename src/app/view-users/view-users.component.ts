@@ -1,16 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
 import {MatTableDataSource} from "@angular/material/table";
-import {Token} from "@angular/compiler";
-
-
-
-export interface User {
-  username: string;
-  admin: boolean;
-}
-
-
+import {DialogService} from "../dialogs/dialog.service";
+import {SnackbarService} from "../services/snackbar.service";
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-view-users',
@@ -19,19 +12,12 @@ export interface User {
 })
 export class ViewUsersComponent implements OnInit {
   users: User[];
-
-  displayedColumns = ['username', 'password', 'boolean'];
+  displayedColumns = ['username','is an admin','edit','delete'];
   dataSource: MatTableDataSource<User>
 
-
-
-
-
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private dialogService: DialogService, private snackbar: SnackbarService) {
     this.users = [];
     this.dataSource = new MatTableDataSource<User>()
-
-
   }
 
   updateUsers(): void {
@@ -46,12 +32,11 @@ export class ViewUsersComponent implements OnInit {
       this.updateUsers();
 
     }).catch(ans => this.snackbar.open("User not added" , "Dismiss", 5000));
-
   }
 
   editUser(user: User){
     this.dialogService.openEditUser(user).then(ans =>{
-      this.userService.changeUser(User.username, ans).subscribe(ans => this.updateUsers());
+      this.userService.changeUser(user.username, ans).subscribe(ans => this.updateUsers());
     }).catch(ans => this.snackbar.open("Something went wrong editing user" , "Dismiss", 5000));
   }
 
@@ -63,13 +48,6 @@ export class ViewUsersComponent implements OnInit {
     }).catch(ans => this.snackbar.open("Something went wrong deleting user" , "Dismiss", 5000));
   }
 
-
-
-
-
-
-
   ngOnInit(): void {
   }
-
 }

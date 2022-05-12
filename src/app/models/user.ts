@@ -1,10 +1,9 @@
-import {first} from "rxjs/operators";
-
 export class User {
+  username: string;
+  admin: boolean;
 
-  constructor(public username?: string , public admin?: boolean , ) {
-
-    this.username = username || " ";
-    this.admin = admin || false;
+  constructor(username: string, admin: boolean , ) {
+    this.username = username;
+    this.admin = admin;
   }
 }
