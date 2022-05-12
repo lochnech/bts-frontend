@@ -12,7 +12,7 @@ import {User} from "../models/user";
 })
 export class ViewUsersComponent {
   users: User[];
-  displayedColumns = ['username','is an admin','edit','delete'];
+  displayedColumns = ['Username','Is admin','Edit','Delete'];
   dataSource: MatTableDataSource<User>
 
   constructor(private userService: UserService, private dialogService: DialogService, private snackbar: SnackbarService) {
@@ -23,7 +23,6 @@ export class ViewUsersComponent {
 
   updateUsers(): void {
     this.userService.getUsers().subscribe(answers => {
-      console.log(answers)
       this.dataSource.data = answers;
       this.users = answers;
     });

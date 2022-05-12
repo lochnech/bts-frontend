@@ -1,9 +1,9 @@
 export class User {
   username: string;
-  admin: boolean;
+  is_admin: boolean;
 
-  constructor(username: string, admin: boolean , ) {
+  constructor(username: string, is_admin: boolean , ) {
     this.username = username;
-    this.admin = admin;
+    this.is_admin = is_admin;
   }
 }

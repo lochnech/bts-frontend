@@ -10,11 +10,11 @@ import {User} from "../../models/user";
 })
 export class AddUserDialogComponent{
   username: string
-  admin: boolean
+  is_admin: boolean
 
   constructor(private mdDialogRef: MatDialogRef<AddUserDialogComponent>, private snackbar: SnackbarService, private userService: UserService) {
     this.username = '';
-    this.admin = false;
+    this.is_admin = false;
   }
 
   public cancel() {
@@ -27,7 +27,7 @@ export class AddUserDialogComponent{
 
   public confirm() {
     if (this.username.match(/^[a-zA-Z0-9]+$/)) {
-      this.userService.addUser(new User(this.username, this.admin)).subscribe((response) => {
+      this.userService.addUser(new User(this.username, this.is_admin)).subscribe((response) => {
         this.close(true)
       }, (error) => {
         this.snackbar.open('Something Went Wrong! Please Verify that this user does not already exist', 'Dismiss', 10000);

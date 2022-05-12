@@ -9,11 +9,11 @@ import {User} from "../../models/user";
 })
 export class EditUserDialogComponent{
   username: string
-  admin: boolean
+  is_admin: boolean
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: User, private mdDialogRef: MatDialogRef<EditUserDialogComponent>, private snackbar: SnackbarService) {
     this.username = this.data.username;
-    this.admin = this.data.admin;
+    this.is_admin = this.data.is_admin;
   }
 
   public cancel() {
@@ -26,7 +26,7 @@ export class EditUserDialogComponent{
 
   public confirm() {
     if (this.username.match(/^[a-zA-Z0-9]+$/)) {
-      this.close(new User(this.username, this.admin));
+      this.close(new User(this.username, this.is_admin));
     } else {
       this.snackbar.open('Invalid Info', 'Dismiss', 5000);
     }
