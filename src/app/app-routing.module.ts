@@ -5,6 +5,7 @@ import { SalesComponent } from "./sales/sales.component";
 import { InventoryComponent } from "./inventory/inventory.component";
 import { AuthGuardService } from "./services/auth-guard.service";
 import {SignInComponent} from "./sign-in/sign-in.component";
+import {ViewUsersComponent} from "./view-users/view-users.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'sales', component: SalesComponent, canActivate: [AuthGuardService]},
   {path: 'inventory', component: InventoryComponent, canActivate: [AuthGuardService]},
   {path: 'signIn', component: SignInComponent},
+  {path: 'view_users', component:ViewUsersComponent, canActivate: [AuthGuardService]},
   {path: '**', redirectTo: '/welcome'}
 ];
 

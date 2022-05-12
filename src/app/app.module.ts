@@ -30,6 +30,7 @@ import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { Interceptor } from "./models/interceptor";
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     InventoryComponent,
     NavbarComponent,
     SignInComponent,
+    ViewUsersComponent
   ],
     imports: [
         BrowserModule,
