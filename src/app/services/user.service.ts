@@ -31,7 +31,7 @@ export class UserService {
     //     }
     //   })
     return new Promise<boolean>((res, rej) => {
-      this.http.post<string>(environment.signInURL, {username: username, password: password}, {observe: 'response'})
+      this.http.post<string>(`${environment.authURL}/verify`, {username: username, password: password}, {observe: 'response'})
         .subscribe((response) => {
           if (response.status == 200) {
             this.status.next(true);
@@ -59,7 +59,7 @@ export class UserService {
     this.route.navigate(['/welcome']).then(() => {
       this.status.next(false);
       location.reload();
-    })
+    });
   }
 
   /** GET all users. Will return a User[] observable */
