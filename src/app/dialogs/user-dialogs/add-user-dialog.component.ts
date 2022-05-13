@@ -10,10 +10,14 @@ import {User} from "../../models/user";
 })
 export class AddUserDialogComponent{
   username: string
+  password: string
+  passwordConfirm: string
   is_admin: boolean
 
   constructor(private mdDialogRef: MatDialogRef<AddUserDialogComponent>, private snackbar: SnackbarService, private userService: UserService) {
     this.username = '';
+    this.password = '';
+    this.passwordConfirm = '';
     this.is_admin = false;
   }
 
@@ -26,14 +30,14 @@ export class AddUserDialogComponent{
   }
 
   public confirm() {
-    if (this.username.match(/^[a-zA-Z0-9]+$/)) {
-      this.userService.addUser(new User(this.username, this.is_admin)).subscribe((response) => {
+    if (this.username.match(/^[a-zA-Z0-9]+$/) && this.password == this.passwordConfirm) {
+      this.userService.addUser(new User(this.username, this.is_admin), this.password).subscribe((response) => {
         this.close(true)
       }, (error) => {
         this.snackbar.open('Something Went Wrong! Please Verify that this user does not already exist', 'Dismiss', 10000);
       })
     } else {
-      this.snackbar.open('Invalid Info', 'Dismiss', 5000);
+      this.snackbar.open('Invalid Info. Please Verify the Passwords Match', 'Dismiss', 5000);
     }
   }
 

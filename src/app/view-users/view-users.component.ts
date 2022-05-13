@@ -37,7 +37,7 @@ export class ViewUsersComponent {
 
   editUser(user: User){
     this.dialogService.openEditUser(user).then(ans =>{
-      this.userService.changeUser(user.username, ans).subscribe(ans => this.updateUsers());
+      this.userService.changeUser(user.username, ans[0], ans[1]).subscribe(ans => this.updateUsers());
     }).catch(ans => this.snackbar.open("Something went wrong editing user" , "Dismiss", 5000));
   }
 

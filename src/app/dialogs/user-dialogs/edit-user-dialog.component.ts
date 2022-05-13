@@ -9,10 +9,14 @@ import {User} from "../../models/user";
 })
 export class EditUserDialogComponent{
   username: string
+  password: string
+  passwordConfirm: string
   is_admin: boolean
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: User, private mdDialogRef: MatDialogRef<EditUserDialogComponent>, private snackbar: SnackbarService) {
     this.username = this.data.username;
+    this.password = '';
+    this.passwordConfirm = '';
     this.is_admin = this.data.is_admin;
   }
 
@@ -25,10 +29,10 @@ export class EditUserDialogComponent{
   }
 
   public confirm() {
-    if (this.username.match(/^[a-zA-Z0-9]+$/)) {
-      this.close(new User(this.username, this.is_admin));
+    if (this.username.match(/^[a-zA-Z0-9]+$/) && this.password == this.passwordConfirm) {
+      this.close([new User(this.username, this.is_admin), this.password]);
     } else {
-      this.snackbar.open('Invalid Info', 'Dismiss', 5000);
+      this.snackbar.open('Invalid Info. Please Verify the Passwords Match', 'Dismiss', 5000);
     }
   }
 

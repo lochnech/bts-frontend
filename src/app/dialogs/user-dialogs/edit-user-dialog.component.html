@@ -3,6 +3,11 @@
 </div>
 <div>
   <input [(ngModel)] = "this.username"> <p>Username</p>
+  <input [(ngModel)] = "this.password"> <p>New Password (optional)</p>
+  <input [(ngModel)] = "this.passwordConfirm"> <p>Confirm New Password (optional)</p>
+  <input [(ngModel)] = "this.username"> <p>Username</p>
+
+
   <input type="checkbox" [(ngModel)] = "this.is_admin"> <p>Is an Admin (Can Edit/Delete other Users)</p>
 </div>
 <div mat-dialog-actions style="display: flex; justify-content: space-between;">

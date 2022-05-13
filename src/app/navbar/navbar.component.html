@@ -5,7 +5,7 @@
     <ul class = "navbar">
       <li><a class="nav-link" routerLink="sales">Sales</a></li>
       <li><a class="nav-link" routerLink="inventory">Inventory</a></li>
-      <li><a class ='nav-link' routerLink="view_users">View Users</a> </li>
+      <li *ngIf="this.is_admin"><a class ='nav-link' routerLink="view_users">View Users</a> </li>
       <li><a class="nav-link" routerLink="/" (click)="signUserOut()">Sign Out</a></li>
     </ul>
 

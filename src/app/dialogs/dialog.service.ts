@@ -96,8 +96,8 @@ export class DialogService {
   }
 
   //edits a user in the user table
-  public openEditUser(user: User): Promise<User> {
-    return new Promise<User>((res, rej) => {
+  public openEditUser(user: User): Promise<[User, String]> {
+    return new Promise<[User, String]>((res, rej) => {
       this.dialogRef = this.dialog.open(EditUserDialogComponent, {data: user});
       this.dialogRef.afterClosed().subscribe((ans: any) =>{
         if (!ans) {
