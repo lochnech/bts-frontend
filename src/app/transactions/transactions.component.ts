@@ -3,6 +3,7 @@ import { TransactionService } from "../services/transaction.service";
 import { MatTableDataSource } from "@angular/material/table";
 import { Transaction } from "../models/transaction";
 import { DialogService } from "../dialogs/dialog.service";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-transactions',
@@ -14,7 +15,7 @@ export class TransactionsComponent implements OnInit {
   displayedColumns = ['id','price', 'itemCount', 'time', 'viewItems'];
   transactionsData: MatTableDataSource<Transaction>
 
-  constructor(public transactionService: TransactionService, public dialogService: DialogService) {
+  constructor(public transactionService: TransactionService, public dialogService: DialogService, public datePipe: DatePipe) {
     this.transactionsData = new MatTableDataSource<Transaction>();
     this.updateData();
   }

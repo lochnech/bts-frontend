@@ -5,6 +5,8 @@ import { SalesComponent } from './sales/sales.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 //modules
 import { AppRoutingModule } from './app-routing.module';
@@ -30,8 +32,8 @@ import { SnackbarService } from "./services/snackbar.service";
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { Interceptor } from "./models/interceptor";
-import { SignInComponent } from './sign-in/sign-in.component';
-import { ViewUsersComponent } from './view-users/view-users.component';
+import { DatePipe } from "@angular/common";
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { ViewUsersComponent } from './view-users/view-users.component';
     AppComponent,
     AuthGuardService,
     DialogService,
+    DatePipe,
     NavbarComponent,
     SnackbarService,
     { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }
