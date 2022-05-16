@@ -9,7 +9,6 @@ import { AddUserDialogComponent } from "./user-dialogs/add-user-dialog.component
 import { EditUserDialogComponent } from "./user-dialogs/edit-user-dialog.component";
 import { ViewItemsDialogComponent } from "./transaction-dialogs/view-items-dialog.component";
 import { StoreItem } from "../models/store-item";
-import { TransactionItem } from "../models/transaction-item";
 import { User } from "../models/user";
 
 

@@ -1,9 +1,8 @@
 import {Component, HostListener, Inject, Input} from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { TransactionItem } from "../../models/transaction-item";
-import { Transaction } from "../../models/transaction";
 import { MatTableDataSource } from "@angular/material/table";
-import {TransactionService} from "../../services/transaction.service";
+import { TransactionService } from "../../services/transaction.service";
 
 @Component({
   selector: 'app-view-items-dialog',

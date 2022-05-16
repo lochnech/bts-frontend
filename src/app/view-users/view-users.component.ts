@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {UserService} from "../services/user.service";
-import {MatTableDataSource} from "@angular/material/table";
-import {DialogService} from "../dialogs/dialog.service";
-import {SnackbarService} from "../services/snackbar.service";
-import {User} from "../models/user";
+import { Component } from '@angular/core';
+import { UserService } from "../services/user.service";
+import { MatTableDataSource } from "@angular/material/table";
+import { DialogService } from "../dialogs/dialog.service";
+import { SnackbarService } from "../services/snackbar.service";
+import { User } from "../models/user";
 
 @Component({
   selector: 'app-view-users',

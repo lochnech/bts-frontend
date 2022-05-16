@@ -3,7 +3,7 @@ import { TransactionService } from "../services/transaction.service";
 import { MatTableDataSource } from "@angular/material/table";
 import { Transaction } from "../models/transaction";
 import { DialogService } from "../dialogs/dialog.service";
-import {DatePipe} from "@angular/common";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-transactions',
