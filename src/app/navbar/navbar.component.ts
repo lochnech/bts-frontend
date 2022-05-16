@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { UserService } from "../services/user.service";
 import { Observable } from "rxjs";
 
@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
   status: Observable<boolean>;
   is_admin: Observable<boolean>
@@ -16,6 +16,10 @@ export class NavbarComponent {
   constructor(public userService: UserService) {
     this.status = userService.status.asObservable();
     this.is_admin = userService.is_admin.asObservable()
+  }
+
+  ngOnInit() {
+    this.is_admin = this.userService.is_admin.asObservable()
   }
 
   signUserOut(): void {
