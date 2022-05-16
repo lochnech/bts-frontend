@@ -11,9 +11,11 @@ import { Observable } from "rxjs";
 export class NavbarComponent {
 
   status: Observable<boolean>;
+  is_admin: Observable<boolean>
 
   constructor(public userService: UserService) {
     this.status = userService.status.asObservable();
+    this.is_admin = userService.is_admin.asObservable()
   }
 
   signUserOut(): void {

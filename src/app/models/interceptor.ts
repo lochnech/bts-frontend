@@ -10,7 +10,7 @@ export class Interceptor implements HttpInterceptor {
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authReq = httpRequest.clone({
-      headers: new HttpHeaders({ token : this.userService.userToken.value })
+      headers: new HttpHeaders(this.userService.userToken.getValue())
     });
     return next.handle(authReq);
   }

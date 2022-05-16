@@ -4,6 +4,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SalesComponent } from './sales/sales.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 //modules
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,7 @@ import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { Interceptor } from "./models/interceptor";
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
     SalesComponent,
     InventoryComponent,
     NavbarComponent,
+    TransactionsComponent,
     SignInComponent,
+    ViewUsersComponent
   ],
     imports: [
         BrowserModule,

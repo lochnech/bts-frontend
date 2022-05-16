@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {StoreItem} from "../models/store-item";
+import {User} from "../models/user";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -10,7 +11,7 @@ import {StoreItem} from "../models/store-item";
 
 export class ConfirmDeleteDialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: StoreItem, private mdDialogRef: MatDialogRef<ConfirmDeleteDialogComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: StoreItem | User, private mdDialogRef: MatDialogRef<ConfirmDeleteDialogComponent>) { }
 
   public cancel() {
     this.close(false);

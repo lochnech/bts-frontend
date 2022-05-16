@@ -1,8 +1,8 @@
 import { Component, HostListener } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
-import {SnackbarService} from "../services/snackbar.service";
-import {StoreItem} from "../models/store-item";
-import {InventoryService} from "../services/inventory.service";
+import { SnackbarService } from "../../services/snackbar.service";
+import { StoreItem } from "../../models/store-item";
+import { InventoryService } from "../../services/inventory.service";
 
 @Component({
   selector: 'app-add-item-dialog',

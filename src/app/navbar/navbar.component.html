@@ -6,6 +6,8 @@
     <ul class = "navbar">
       <li><a class="nav-link" routerLink="sales">Sales</a></li>
       <li><a class="nav-link" routerLink="inventory">Inventory</a></li>
+      <li><a class="nav-link" routerLink="transactions">Transactions</a></li>
+      <li *ngIf="this.is_admin"><a class ='nav-link' routerLink="view_users">View Users</a> </li>
       <li><a class="nav-link" routerLink="/" (click)="signUserOut()">Sign Out</a></li>
     </ul>
 
@@ -18,6 +20,7 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="sales">Sales</button>
         <button mat-menu-item routerLink="inventory">Inventory</button>
+        <button mat-menu-item routerLink="view_users">View Users</button>
         <button mat-menu-item routerLink="/" (click)="signUserOut()" >Sign Out</button>
       </mat-menu>
 
