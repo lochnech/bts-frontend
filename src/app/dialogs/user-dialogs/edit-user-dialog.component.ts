@@ -29,8 +29,12 @@ export class EditUserDialogComponent{
   }
 
   public confirm() {
-    if (this.username.match(/^[a-zA-Z0-9]+$/) && this.password == this.passwordConfirm) {
-      this.close([new User(this.username, this.is_admin), this.password]);
+    if(this.username.match(/^[a-zA-Z0-9]+$/) && this.password == this.passwordConfirm) {
+      if(this.password == "") {
+        this.close([new User(this.username, this.is_admin)])
+      } else {
+        this.close([new User(this.username, this.is_admin), this.password]);
+      }
     } else {
       this.snackbar.open('Invalid Info. Please Verify the Passwords Match', 'Dismiss', 5000);
     }

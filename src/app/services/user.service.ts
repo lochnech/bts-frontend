@@ -5,6 +5,7 @@ import { HttpClient, HttpResponse } from "@angular/common/http";
 import { environment } from "../../environments/environment";
 import {catchError, map} from "rxjs/operators";
 import {User} from "../models/user";
+import {SnackbarService} from "./snackbar.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,14 @@ export class UserService {
 
   status: BehaviorSubject<boolean>;
   userToken: BehaviorSubject<string>;
+  username: BehaviorSubject<string>
   is_admin: BehaviorSubject<boolean>;
   private userURL = environment.userURL;
 
-  constructor(private route: Router, private http: HttpClient) {
+  constructor(private route: Router, private http: HttpClient, private snackbar: SnackbarService) {
     this.status = new BehaviorSubject<boolean>(false);
     this.userToken = new BehaviorSubject<string>("");
+    this.username = new BehaviorSubject<string>("");
     this.is_admin = new BehaviorSubject<boolean>(false);
   }
 
@@ -28,15 +31,18 @@ export class UserService {
       this.http.post<string>(`${environment.authURL}/verify`, {username: username, password: password}, {observe: 'response'})
         .subscribe((response) => {
           if (response.status == 200) {
+            this.username.next(username)
             this.status.next(true);
             this.userToken.next(response.body || "");
             this.isAdmin(username).then(ans => res(true))
-          } else if (response.status == 401) {
-            this.status.next(false);
-            res(false);
           } else {
             this.status.next(false);
             rej();
+          }
+        }, (error) => {
+          if (error.status == 401) {
+            this.status.next(false);
+            res(false);
           }
         });
     });
@@ -72,13 +78,25 @@ export class UserService {
 
   /** POST user with all data. Will add user to the users table **/
   addUser(user: User, password: String): Observable<HttpResponse<User>>{
-    return this.http.post<User>(this.userURL, {user, password}, {observe :'response'});
+    const newUsername = user.username;
+    const newIsAdmin = user.is_admin;
+    return this.http.post<User>(`${environment.authURL}/create`, {'username': newUsername, 'is_admin': newIsAdmin, password}, {observe :'response'});
   }
 
   /** PUT user with all data. Will update user in the users table **/
-  changeUser(username: string, user: User, password: String): Observable<User | null>{
+  changeUser(username: string, user: User): Observable<User | null>{
     const url = `${this.userURL}/${username}`;
-    return this.http.put<User>(url, {user, password}, {observe :'response'}).pipe(map(response => {
+    const newUsername = user.username;
+    const newIsAdmin = user.is_admin;
+    return this.http.put<User>(url, {'username': newUsername, 'is_admin': newIsAdmin}, {observe :'response'}).pipe(map(response => {
+      return response.body;
+    }))
+  }
+
+  /** PUT user with all data and change password. Will update user in the users table **/
+  changeUserPassword(username: string, password: String): Observable<User | null>{
+    const url = `${this.userURL}/${username}/reset_password`;
+    return this.http.put<User>(url, {password}, {observe :'response'}).pipe(map(response => {
       return response.body;
     }))
   }

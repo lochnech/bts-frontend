@@ -25,7 +25,7 @@ export class SignInComponent {
         if(ans) {
           this.router.navigate([`sales`]).then();
         } else {
-          this.snackbar.open("The username or password was invalid", "Dismiss", 5000);
+          this.snackbar.open("Invalid username or password. Please try again" , "Dismiss", 5000);
         }
       }).catch(ans => this.snackbar.open("bad", "Dismiss", 5000));
     } else {

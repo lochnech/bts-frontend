@@ -31,21 +31,27 @@ export class ViewUsersComponent {
   addUser(){
     this.dialogService.openAddUser().then(ans => {
       this.updateUsers();
-
     }).catch(ans => this.snackbar.open("User not added" , "Dismiss", 5000));
   }
 
   editUser(user: User){
     this.dialogService.openEditUser(user).then(ans =>{
-      this.userService.changeUser(user.username, ans[0], ans[1]).subscribe(ans => this.updateUsers());
+      this.userService.changeUser(user.username, ans[0]).subscribe(ans => this.updateUsers());
+      if(ans.length != 1) {
+        this.userService.changeUserPassword(user.username, ans[1]).subscribe(ans => this.updateUsers());
+      }
     }).catch(ans => this.snackbar.open("Something went wrong editing user" , "Dismiss", 5000));
   }
 
   deleteUser(user:User) {
-    this.dialogService.openConfirmDelete(user).then(ans =>{
-      if(ans){
-        this.userService.deleteUser(user.username).subscribe(ans => this.updateUsers());
-      }
-    }).catch(ans => this.snackbar.open("Something went wrong deleting user" , "Dismiss", 5000));
+    if(user.username == this.userService.username.value){
+      this.snackbar.open("You cannot delete yourself" , "Dismiss", 5000)
+    }else {
+      this.dialogService.openConfirmDelete(user).then(ans => {
+        if (ans) {
+          this.userService.deleteUser(user.username).subscribe(ans => this.updateUsers());
+        }
+      }).catch(ans => this.snackbar.open("Something went wrong deleting user", "Dismiss", 5000));
+    }
   }
 }
