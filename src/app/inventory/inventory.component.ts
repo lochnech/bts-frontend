@@ -20,7 +20,7 @@ export interface StoreItem {
 })
 
 export class InventoryComponent implements OnInit{
-  data: StoreItem [];
+  data: StoreItem[];
   totalPrice: number;
   barcodeForm: FormGroup;
   filterValue: any;

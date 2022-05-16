@@ -1,0 +1,19 @@
+<form class="info" [formGroup]="info">
+
+  <h1>Sign In</h1>
+
+  <p>Username</p>
+  <mat-form-field class="form-input" appearance="fill">
+    <input matInput formControlName="username" autocomplete="off">
+  </mat-form-field>
+
+  <p>Password</p>
+  <mat-form-field class="form-input" appearance="fill">
+    <input matInput type="password" formControlName="password" autocomplete="off">
+  </mat-form-field>
+
+  <div>
+    <button (click)="signIn()">Sign In</button>
+  </div>
+
+</form>

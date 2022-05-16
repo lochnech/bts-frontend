@@ -4,23 +4,16 @@ table {
   width: 98%;
 }
 
-.add-item-button {
+.add-user-button {
   margin-top: 1vw;
   margin-left: 2vw;
 }
 
-.filter{
-  margin-left: 2vw;
-}
-
-.filter-input{
-  margin-left: 2vw;
-}
-
-.stock {
+.users {
   width: 90%;
   border: 5px solid black;
   margin: auto;
   background-color: lightgrey;
+  margin-top: 7vh;
 }
 
