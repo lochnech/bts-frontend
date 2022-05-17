@@ -1,10 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TransactionService } from "../services/transaction.service";
 import { MatTableDataSource } from "@angular/material/table";
 import { Transaction } from "../models/transaction";
 import { DialogService } from "../dialogs/dialog.service";
 import { DatePipe } from "@angular/common";
-import {MatSort} from "@angular/material/sort";
+import { MatSort } from "@angular/material/sort";
 
 @Component({
   selector: 'app-transactions',
