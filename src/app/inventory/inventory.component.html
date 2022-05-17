@@ -32,14 +32,14 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef> Edit </th>
       <td mat-cell *matCellDef="let i=index;">
-        <button mat-icon-button (click)="editItem(inventoryData.data[i])"><mat-icon>settings</mat-icon></button>
+        <button mat-icon-button (click)="editItem(inventoryData.sortData(inventoryData.data, sort1)[i])"><mat-icon>settings</mat-icon></button>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef> Delete Item </th>
       <td mat-cell *matCellDef="let i=index;">
-        <button mat-icon-button (click)="deleteItem(inventoryData.data[i])"><mat-icon>delete</mat-icon></button>
+        <button mat-icon-button (click)="deleteItem(inventoryData.sortData(inventoryData.data, sort1)[i])"><mat-icon>delete</mat-icon></button>
       </td>
     </ng-container>
 

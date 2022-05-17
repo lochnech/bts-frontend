@@ -11,7 +11,6 @@ import { ViewItemsDialogComponent } from "./transaction-dialogs/view-items-dialo
 import { StoreItem } from "../models/store-item";
 import { User } from "../models/user";
 
-
 @Injectable()
 export class DialogService {
 

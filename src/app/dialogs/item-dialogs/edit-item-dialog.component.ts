@@ -30,7 +30,7 @@ export class EditItemDialogComponent{
   }
 
   public confirm() {
-    if (this.barcode.length == 12 && this.name != '' && this.price != 0) {
+    if (this.barcode.match(/\d+/) && this.name != '' && this.price != 0) {
       this.close(new StoreItem(this.barcode, this.name, this.price * 100, this.stock));
     } else {
       this.snackbar.open('Invalid Info', 'Dismiss', 5000);
