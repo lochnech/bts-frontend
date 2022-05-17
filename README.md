@@ -17,7 +17,7 @@ Coding:[Justin B.](https://github.com/bowersj00), [Keegan S.](https://github.com
 
 Fixing lots of our broken code: [Mr. Simmons](https://github.com/jtsimmons108)
 
-## Shout-outs:
+## Shout-outs
 
 The Backend is cool too, check them out.
 
