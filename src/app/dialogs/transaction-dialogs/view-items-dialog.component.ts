@@ -1,18 +1,18 @@
-import {Component, HostListener, Inject, Input} from "@angular/core";
+import {Component, HostListener, Inject, OnInit} from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { TransactionItem } from "../../models/transaction-item";
-import { Transaction } from "../../models/transaction";
 import { MatTableDataSource } from "@angular/material/table";
 import {TransactionService} from "../../services/transaction.service";
 
 @Component({
   selector: 'app-view-items-dialog',
-  templateUrl: './view-items-dialog.component.html'
+  templateUrl: './view-items-dialog.component.html',
+  styleUrls: ['./view-items-dialog.component.css']
 })
 
-export class ViewItemsDialogComponent {
+export class ViewItemsDialogComponent implements OnInit{
 
-  displayedColumns = ['name', 'barcode', 'amount', 'ppu'];
+  displayedColumns = ['barcode', 'name', 'amount', 'ppu'];
   transactionID: number;
   transactionItemData: MatTableDataSource<TransactionItem>;
 
@@ -22,6 +22,10 @@ export class ViewItemsDialogComponent {
     this.transactionID = data.transactionID;
     this.transactionItemData = new MatTableDataSource<TransactionItem>();
     this.updateData();
+  }
+
+  ngOnInit() {
+    this.dialogRef.updateSize('35%');
   }
 
   updateData(): void {

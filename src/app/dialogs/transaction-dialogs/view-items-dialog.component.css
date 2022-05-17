@@ -1,0 +1,19 @@
+.dialog-table {
+  display: block;
+}
+
+.mat-table thead {
+  display: block;
+}
+
+td {
+  padding-left: 3vw;
+}
+
+th {
+  padding-left: 3vw;
+}
+
+button {
+  margin-top: 2vh;
+}
