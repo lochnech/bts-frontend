@@ -13,13 +13,13 @@ GitHub can be used along with some local editor in order to create or alter this
 May 17, 2022 - First working version of this project was deployed
 
 ## Credits
-###Coding: 
-[Justin B.](https://github.com/bowersj00), [Keegan S.](https://github.com/lochnech), [Tyler H.](https://github.com/notd0nK), [Tashon W.](https://github.com/JohnWicj)
+Coding:[Justin B.](https://github.com/bowersj00), [Keegan S.](https://github.com/lochnech), [Tyler H.](https://github.com/notd0nK), [Tashon W.](https://github.com/JohnWicj)
 
-###Shoutouts:
 Fixing lots of our broken code: [Mr. Simmons](https://github.com/jtsimmons108)
 
-Backend is cool too, check them out.
+##Shout-outs:
+
+The Backend is cool too, check them out.
 
 And a final shout out to whoever is reading this and maintaining the project now, thanks for keeping it running.
 
