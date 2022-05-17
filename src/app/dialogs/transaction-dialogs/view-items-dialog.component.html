@@ -18,7 +18,7 @@
 
     <ng-container matColumnDef="ppu">
       <th mat-header-cell *matHeaderCellDef> Price per Unit </th>
-      <td mat-cell *matCellDef="let data">{{data.ppu}}</td>
+      <td mat-cell *matCellDef="let data">{{data.ppu/100}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
