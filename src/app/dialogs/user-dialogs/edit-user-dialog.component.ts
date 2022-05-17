@@ -1,7 +1,7 @@
-import {Component, HostListener, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {SnackbarService} from "../../services/snackbar.service";
-import {User} from "../../models/user";
+import { Component, HostListener, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { SnackbarService } from "../../services/snackbar.service";
+import { User } from "../../models/user";
 
 @Component({
   selector: 'app-edit-user-dialog',

@@ -1,8 +1,8 @@
 import { Component, HostListener } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
-import {SnackbarService} from "../../services/snackbar.service";
-import {UserService} from "../../services/user.service";
-import {User} from "../../models/user";
+import { SnackbarService } from "../../services/snackbar.service";
+import { UserService } from "../../services/user.service";
+import { User } from "../../models/user";
 
 @Component({
   selector: 'app-add-user-dialog',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpResponse} from "@angular/common/http";
+import { HttpClient, HttpResponse } from "@angular/common/http";
 import { StoreItem } from "../models/store-item";
 import { catchError, map } from "rxjs/operators";
 import { Observable, of } from "rxjs";

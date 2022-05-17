@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "../services/user.service";
-import {SnackbarService} from "../services/snackbar.service";
-import {Router} from "@angular/router";
+import { SnackbarService } from "../services/snackbar.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',

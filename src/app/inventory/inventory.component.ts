@@ -4,7 +4,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { DialogService } from "../dialogs/dialog.service";
 import { SnackbarService } from "../services/snackbar.service";
-import {MatSort} from "@angular/material/sort";
+import { MatSort } from "@angular/material/sort";
 
 export interface StoreItem {
   barcode: string;

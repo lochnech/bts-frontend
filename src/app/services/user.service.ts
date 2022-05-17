@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { environment } from "../../environments/environment";
-import {catchError, map} from "rxjs/operators";
-import {User} from "../models/user";
-import {SnackbarService} from "./snackbar.service";
+import { catchError, map } from "rxjs/operators";
+import { User } from "../models/user";
+import { SnackbarService } from "./snackbar.service";
 
 @Injectable({
   providedIn: 'root'

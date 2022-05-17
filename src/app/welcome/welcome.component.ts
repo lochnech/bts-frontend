@@ -1,7 +1,7 @@
-import {Component, NgZone} from '@angular/core';
-import {Router} from "@angular/router";
-import {UserService} from "../services/user.service";
-import {Subscription} from "rxjs";
+import { Component, NgZone } from '@angular/core';
+import { Router } from "@angular/router";
+import { UserService } from "../services/user.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-welcome',

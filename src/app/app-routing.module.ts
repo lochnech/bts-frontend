@@ -5,8 +5,8 @@ import { SalesComponent } from "./sales/sales.component";
 import { InventoryComponent } from "./inventory/inventory.component";
 import { TransactionsComponent } from "./transactions/transactions.component";
 import { AuthGuardService } from "./services/auth-guard.service";
-import {SignInComponent} from "./sign-in/sign-in.component";
-import {ViewUsersComponent} from "./view-users/view-users.component";
+import { SignInComponent } from "./sign-in/sign-in.component";
+import { ViewUsersComponent } from "./view-users/view-users.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},

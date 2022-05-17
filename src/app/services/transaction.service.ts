@@ -3,8 +3,8 @@ import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { Transaction } from "../models/transaction";
+import { TransactionItem } from "../models/transaction-item";
 import { catchError } from "rxjs/operators";
-import {TransactionItem} from "../models/transaction-item";
 
 @Injectable({
   providedIn: 'root'
