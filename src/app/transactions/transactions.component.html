@@ -24,7 +24,7 @@
     <ng-container matColumnDef="viewItems">
       <th mat-header-cell *matHeaderCellDef> View Items </th>
       <td mat-cell *matCellDef="let i=index;">
-        <button mat-icon-button (click)="viewItems(transactionsData.data[i])"><mat-icon>pageview</mat-icon></button>
+        <button mat-icon-button (click)="viewItems(transactionsData.sortData(transactionsData.data, sort1)[i])"><mat-icon>pageview</mat-icon></button>
       </td>
     </ng-container>
 
