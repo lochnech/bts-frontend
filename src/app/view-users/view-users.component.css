@@ -5,9 +5,9 @@ table {
 }
 
 .add-user-button {
-  margin-top: 1vw;
-  margin-left: 2vw;
+  margin: 1vw;
 }
+
 
 .users {
   width: 90%;
